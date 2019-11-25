@@ -1,7 +1,6 @@
 class CreateArtworks < ActiveRecord::Migration[5.2]
   def change
     create_table :artworks do |t|
-      t.integer :price
       t.string :category
       t.text :description
       t.references :gallery, foreign_key: true
