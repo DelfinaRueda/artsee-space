@@ -7,7 +7,7 @@
 <div class="container">
   <div class="artists-cards">
     <% @users.sample(10).each do |user| %>
-      <%= render 'shared/artist-card', user: user, artworks: @artworks %>
+      <%= render partial: 'shared/artist-card', locals: { artist: user } %>
     <% end %>
   </div>
 </div>
