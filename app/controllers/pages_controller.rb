@@ -5,4 +5,8 @@ class PagesController < ApplicationController
     @users = User.all
     @artworks = Artwork.all
   end
+
+  def artists
+    @artists = User.all
+  end
 end
