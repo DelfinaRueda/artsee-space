@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def artists
     @artists = User.all
   end
+
+  def artist
+    @artist = User.find(params[:id])
+  end
 end
