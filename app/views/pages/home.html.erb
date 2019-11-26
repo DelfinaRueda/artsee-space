@@ -1,10 +1,10 @@
-<div class="container">
+<div class="banner-container">
   <div class="banner">
-    <<%= render partial: 'shared/banner' %>
+    <%= render partial: 'shared/banner' %>
   </div>
 </div>
 
-<div class="container">
+<div class="container-cards">
   <div class="artists-cards">
     <% @users.sample(6).each do |user| %>
       <%= render partial: 'shared/artist-card', locals: { artist: user } %>
