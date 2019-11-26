@@ -39,11 +39,12 @@ puts 'Creating artworks...'
 User.all.each do |user|
   rand(1..10).times do
     artwork = Artwork.new(
+      title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
       description: Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
-      artwork_pic: "https://images.unsplash.com/photo-1502842294453-95e49a5ce544?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+      artwork_pic: "https://source.unsplash.com/random",
     )
     artwork.save!
   end
