@@ -1,0 +1,9 @@
+<div class="artist-card">
+  <div class="card-artwork">
+    <img src="<%= artworks.where(user_id: user.id).sample.artwork_pic %>" alt="Artwork">
+  </div>
+  <div class="card-profile">
+    <img src="<%= user.profile_pic %>" alt="Profile picture">
+    <h5><%= user.first_name %> <%= user.last_name %></h5>
+  </div>
+</div>
