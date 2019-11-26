@@ -6,17 +6,21 @@
           <% if i == 0 %>
             <div class="carousel-item active">
               <% unless artist.artworks.count == 0 %>
-                <% artwork = artist.artworks.sample %>
                 <img class="d-block w-100" src="<%= artwork.artwork_pic %>" alt="Slide">
               <% end %>
+              <div class="carousel-caption d-none d-md-block">
+                <h5><%= artwork.title %></h5>
+              </div>
             </div>
           <% else %>
             <div class="carousel-item">
               <% unless artist.artworks.count == 0 %>
-                <% artwork = artist.artworks.sample %>
                 <img class="d-block w-100" src="<%= artwork.artwork_pic %>" alt="Slide">
               <% end %>
-          </div>
+              <div class="carousel-caption d-none d-md-block">
+                <h5><%= artwork.title %></h5>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </div>
