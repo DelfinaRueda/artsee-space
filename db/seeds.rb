@@ -40,6 +40,7 @@ puts 'Creating artworks...'
 User.all.each do |user|
   rand(1..10).times do
     artwork = Artwork.new(
+      title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
       description: Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
