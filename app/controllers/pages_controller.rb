@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: %i[home artists artist]
 
   def home
     @users = User.all
@@ -8,5 +8,9 @@ class PagesController < ApplicationController
 
   def artists
     @artists = User.all
+  end
+
+  def artist
+    @artist = User.find(params[:id])
   end
 end
