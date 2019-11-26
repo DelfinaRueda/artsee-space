@@ -1,12 +1,14 @@
 <div class="artist-card">
   <div class="card-artwork">
-    <% artwork = artworks.where(user_id: user.id).sample %>
-    <img src="<%= artwork.artwork_pic %>" alt="Artwork">
+    <% unless artist.artworks.count == 0 %>
+      <% artwork = artist.artworks.sample %>
+      <img src="<%= artwork.artwork_pic %>" alt="Artwork">
+    <% end %>
   </div>
   <div class="card-profile">
-    <img src="<%= user.profile_pic %>" alt="Profile picture">
+    <img src="<%= artist.profile_pic %>" alt="Profile picture">
     <div class="profile-info">
-      <h5><%= user.first_name %> <%= user.last_name %></h5>
+      <h5><%= artist.first_name %> <%= artist.last_name %></h5>
     </div>
   </div>
 </div>
