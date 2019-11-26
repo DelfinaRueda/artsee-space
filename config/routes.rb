@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   get '/artists/', to: 'pages#artists'
   get '/artists/:id', to: 'pages#artist'
   resources :artworks, only: [:show, :index]
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
