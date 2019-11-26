@@ -43,7 +43,7 @@ User.all.each do |user|
       description: Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
-      artwork_pic: "https://images.unsplash.com/photo-1502842294453-95e49a5ce544?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+      artwork_pic: "https://source.unsplash.com/collection/5057079",
     )
     artwork.save!
   end
