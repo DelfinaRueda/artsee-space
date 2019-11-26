@@ -1,6 +1,6 @@
 <div class="artist-card">
   <div class="card-artwork">
-    <div id="<%= artist.username %>" class="carousel slide" data-ride="carousel">
+    <div id="<%= artist.username %>" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner">
         <% artist.artworks.where(user_id: artist.id).each_with_index do |artwork, i| %>
           <% if i == 0 %>
