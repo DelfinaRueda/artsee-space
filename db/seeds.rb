@@ -21,6 +21,7 @@ puts 'Creating users...'
     password: "123456789",
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
+    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
   )
   user.save!
 end
@@ -44,7 +45,7 @@ User.all.each do |user|
       description: Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
-      artwork_pic: "https://source.unsplash.com/random",
+      artwork_pic: ["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample,
     )
     artwork.save!
   end
