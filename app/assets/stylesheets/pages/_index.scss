@@ -1,6 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "artwork-show";
 .container {
+
+  h2 {
+    text-align: center;
+  }
+
+  .row {
+    position: center;
+  }
 }
 .cards {
   display: grid;
@@ -13,8 +22,8 @@
   .class-category {
     border: 1px solid #ededed;
     padding: 10px 10px 10px 10px;
-    width: 420px;
-    height: 430px;
+    width: 90%;
+    height: 100%;
   }
 
     .card-top {
