@@ -12,5 +12,6 @@ class PagesController < ApplicationController
 
   def artist
     @artist = User.find(params[:id])
+    @artworks = Artwork.where(user_id: params[:id])
   end
 end
