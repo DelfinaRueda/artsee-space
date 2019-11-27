@@ -1,31 +1,43 @@
 <div id="bannerIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#bannerIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#bannerIndicators" data-slide-to="1"></li>
+    <li data-target="#bannerIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active home-banner-item">
       <%= image_tag "gallery-pictures.jpg", class: "d-block w-100 banner-image" %>
+      <div class="overlay">
+        <div>
+          <h1>Artsee</h1>
+          <p>Experience amazing art</p>
+        </div>
+      </div>
     </div>
     <div class="carousel-item home-banner-item">
       <div class="category-cards">
-        <div class="category-card painting">
+        <div class="category-card" style="background-image: url('<%= image_url("home-categories-paintings.jpg") %>')">
           <h2>Painting</h2>
         </div>
-        <div class="category-card photograph">
+        <div class="category-card" style="background-image: url('<%= image_url("home-categories-photographs.jpg") %>')">
           <h2>Photograph</h2>
         </div>
-        <div class="category-card drawing">
+        <div class="category-card" style="background-image: url('<%= image_url("home-categories-drawings.jpg") %>')">
           <h2>Drawing</h2>
         </div>
-        <div class="category-card illustration">
+        <div class="category-card" style="background-image: url('<%= image_url("home-categories-illustrations.jpg") %>')">
           <h2>Illustration</h2>
         </div>
       </div>
     </div>
     <div class="carousel-item home-banner-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <%= image_tag "home-signup.jpg", class: "d-block w-100", alt: "Third slide" %>
+      <div class="overlay">
+        <div>
+          <h1>Showcase your art</h1>
+          <button class="btn btn-primary">Sign up</button>
+        </div>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#bannerIndicators" role="button" data-slide="prev">
