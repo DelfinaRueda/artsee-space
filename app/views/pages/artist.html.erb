@@ -1,5 +1,31 @@
-<h1><%= @artist.first_name %> <%= @artist.last_name %></h1>
-<%= @artist.artworks %><br>
-<%= @artist %><br>
-<%= @artist %><br>
-<%= @artist %><br>
+<div class="container">
+  <div class="profile-card">
+    <div class="profile-image">
+      <img src="<%= @artist.profile_pic %>" alt="">
+    </div>
+    <%= link_to "Edit profile", edit_user_registration_path %>
+    <div class="profile-info">
+      <h2><%= @artist.first_name %> <%= @artist.last_name %></h2>
+      <p>Email: <%= @artist.email %></p>
+      <p>Mobile Number: <%= @artist.phone_number %></p>
+      <div class="profile-description">
+        <h4>Personal Profile:</h4>
+        <% if @artist.description.present? %>
+          <p><%= @artist.description %></p>
+          <% else %>
+          <p>Hi my name is <%= @artist.first_name %> <%= @artist.last_name %>. Please check out my gallery!</p>
+          <% end %>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="<%= @artist.facebook %>"><i class="fab fa-facebook"></i></a>
+      <a href="<%= @artist.instagram %>"><i class="fab fa-instagram"></i></a>
+      <a href="<%= @artist.pinterest %>"><i class="fab fa-pinterest"></i></a>
+      <a href="<%= @artist.twitter %>"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+
+  <div class="gallery">
+
+  </div>
+</div>

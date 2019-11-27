@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/artists/', to: 'pages#artists'
-  get '/artists/:id', to: 'pages#artist'
+  get '/artists/:id', to: 'pages#artist', as: :artist
   resources :artworks, only: [:show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
