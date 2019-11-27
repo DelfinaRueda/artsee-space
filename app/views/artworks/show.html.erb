@@ -26,9 +26,8 @@
     <h4> Description </h4>
     <p><%= @artwork.description*10 %></p>
   </div>
-  <% if @artworks.length > 1 %>
   <div id="comments">
-  <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
+    <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
     <% if @artwork.comments.length == 0 %>
      <p>Be the first to leave a comment about <%= @artwork.title %></p>
     <% else %>
@@ -36,8 +35,9 @@
         <%= render 'comments/show', comment: comment %>
       <% end %>
     <% end %>
-  <%= render 'comments/form', artwork: @artwork, comment: @comment %>
   </div>
+  <%= render 'comments/form', artwork: @artwork, comment: @comment %>
+  <% if @artworks.length > 1 %>
     <h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
   <% end %>
   <div class="row">
