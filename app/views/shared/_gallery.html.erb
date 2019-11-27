@@ -3,12 +3,14 @@
     <div class="cards">
       <% @artworks.each do |artwork| %>
       <div class="class-category">
-          <a href="#">
-          <div class="card-top"><%= render partial: 'shared/artwork', locals: { artwork: artwork} %></a>
+        <div class="card-top">
+          <%= link_to artwork_path(artwork) do %>
+             <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
           <div class="overlay">
           <p><%= artwork.description %></p>
           </div>
         </div>
+        <% end %>
         <div class="card-bottom" style="margin-left: 15px">
             <h4><%= artwork.title %></h4>
             <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>

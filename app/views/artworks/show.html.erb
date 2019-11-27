@@ -1,7 +1,6 @@
-
 <div class="container-top">
   <div class="image-container">
-  <img src="<%= @artwork.artwork_pic %>" alt="">
+  <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
   </div>
   <div class="artist-info">
     <div class="info-top">
