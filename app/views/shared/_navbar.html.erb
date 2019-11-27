@@ -15,10 +15,10 @@
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Artists", artists_path, class: "nav-link" %>
+          <%= link_to "Artworks", artworks_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Artworks", artworks_path, class: "nav-link" %>
+          <%= link_to "Artists", artists_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= render partial: 'shared/avatar', locals: { artist: current_user } %></a>
