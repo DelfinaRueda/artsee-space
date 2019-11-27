@@ -7,6 +7,7 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    @artworks = Artwork.where("user_id = ?", @artwork.user.id)
     @comments = @artwork.comments
     @comment = Comment.new
 

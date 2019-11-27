@@ -27,7 +27,9 @@
     <h4> Description </h4>
     <p><%= @artwork.description*10 %></p>
   </div>
-<h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
+  <% if @artworks.length > 1 %>
+    <h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
+  <% end %>
   <div class="row">
     <div class="cards">
       <% @artwork.gallery.artwork_ids.each do |id| %>
