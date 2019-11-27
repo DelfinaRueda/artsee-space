@@ -7,5 +7,8 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    @comments = @artwork.comments
+    @comment = Comment.new
+
   end
 end
