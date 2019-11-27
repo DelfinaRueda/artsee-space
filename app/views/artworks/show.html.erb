@@ -3,3 +3,21 @@ Category: <%= @artwork.category %><br>
 Description: <%= @artwork.description %><br>
 Gallery Id: <%= @artwork.gallery_id %><br>
 Artist: <%= @artwork.user.first_name %> <%= @artwork.user.last_name %><br>
+<br>
+<br>
+
+<h2>Comments</h2>
+<% @comments.each do |comment|%>
+<div>
+  <%= comment.content%></br>
+  <i><%="- #{comment.user.first_name} #{comment.user.last_name}"%></i>
+</div>
+<br>
+<% end %>
+
+<p>Add a Comment</p>
+
+<%= simple_form_for [@artwork, @comment] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>
