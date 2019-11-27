@@ -9,8 +9,9 @@
       <%= image_tag "gallery-pictures.jpg", class: "d-block w-100 banner-image" %>
       <div class="overlay">
         <div>
-          <h1>Artsee</h1>
-          <p>Experience amazing art</p>
+          <h1>Experience amazing art</h1>
+          <a href="<%= artists_path %>" class="btn btn-primary">Artists</a>
+          <a href="<%= artworks_path %>" class="btn btn-primary">Artworks</a>
         </div>
       </div>
     </div>
@@ -35,7 +36,7 @@
       <div class="overlay">
         <div>
           <h1>Showcase your art</h1>
-          <button class="btn btn-primary">Sign up</button>
+          <a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign up</a>
         </div>
       </div>
     </div>
