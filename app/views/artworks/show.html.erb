@@ -50,19 +50,19 @@
 </div>
 
 
-<h2>Comments</h2>
-<% @comments.each do |comment|%>
-<div>
-  <%= comment.content%></br>
-  <i><%="- #{comment.user.first_name} #{comment.user.last_name}"%></i>
+<h2>
+  <%= pluralize @artwork.comments.size, "comment" %>
+</h2>
+
+<div id="comments">
+  <% if @artwork.comments.length == 0 %>
+   <p>Be the first to leave a comment about <%= @artwork.title %></p>
+  <% else %>
+    <% @artwork.comments.each do |comment| %>
+      <%= render 'comments/show', comment: comment %>
+    <% end %>
+  <% end %>
 </div>
-<br>
-<% end %>
+<%= render 'comments/form', artwork: @artwork, comment: @comment %>
 
-<p>Add a Comment</p>
-
-<%= simple_form_for [@artwork, @comment] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Comment", class: "btn btn-primary" %>
-<% end %>
 
