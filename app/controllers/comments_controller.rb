@@ -1,15 +1,20 @@
 class CommentsController < ApplicationController
 
   def create
-
     @comment = Comment.new(comment_params)
     @artwork = Artwork.find(params[:artwork_id])
     @comment.artwork = @artwork
     @comment.user = current_user
     if @comment.save
-      redirect_to artwork_path(@artwork)
+      respond_to do |format|
+        format.html { redirect_to artwork_path(@artwork) }
+        format.js
+      end
     else
-      render :show
+      respond_to do |format|
+        format.html { render 'artworks/show' }
+        format.js
+      end
     end
   end
 
@@ -17,3 +22,4 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 end
+
