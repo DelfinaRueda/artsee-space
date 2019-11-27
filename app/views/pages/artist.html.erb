@@ -1,7 +1,11 @@
 <div class="profile-container">
   <div class="profile-card">
     <div class="profile-image">
-      <img src="<%= @artist.profile_pic %>" alt="">
+      <% if @artist.photo.attached? %>
+        <%= cl_image_tag @artist.photo.key %>
+      <% else %>
+        <img src="<%= @artist.profile_pic %>" alt="">
+      <% end %>
     </div>
     <div class="link">
       <%= link_to edit_user_registration_path do %>
