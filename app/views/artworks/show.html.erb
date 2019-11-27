@@ -27,18 +27,22 @@
     <h4> Description </h4>
     <p><%= @artwork.description*10 %></p>
   </div>
-<h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
+  <% if @artworks.length > 1 %>
+    <h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
+  <% end %>
   <div class="row">
     <div class="cards">
       <% @artwork.gallery.artwork_ids.each do |id| %>
       <% if @artwork.id != id %>
         <div class="class-category">
           <div class="card-top">
-            <a href="#"><img src="<%= Artwork.find(id).artwork_pic %>" alt="artwork-pic"></a>
+            <%= link_to artwork_path(id) do %>
+            <img src="<%= Artwork.find(id).artwork_pic %>" alt="artwork-pic">
             <div class="overlay">
             <p><%= Artwork.find(id).description %></p>
             </div>
           </div>
+          <% end %>
           <div class="card-bottom" style="margin-left: 15px">
               <h4><%= Artwork.find(id).title %></h4>
           </div>

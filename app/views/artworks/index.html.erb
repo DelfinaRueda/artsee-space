@@ -5,11 +5,13 @@
       <% @artworks.each do |artwork| %>
       <div class="class-category">
         <div class="card-top">
-          <a href="#"><img src="<%= artwork.artwork_pic %>" alt="artwork-pic"></a>
+          <%= link_to artwork_path(artwork) do %>
+         <img src="<%= artwork.artwork_pic %>" alt="artwork-pic">
           <div class="overlay">
           <p><%= artwork.description %></p>
           </div>
         </div>
+        <% end %>
         <div class="card-bottom" style="margin-left: 15px">
             <h4><%= artwork.title %></h4>
             <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
@@ -19,3 +21,4 @@
     </div>
   </div>
 </div>
+
