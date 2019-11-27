@@ -30,6 +30,9 @@
   </div>
 
   <div class="gallery">
+    <%= link_to new_artwork_path do %>
+    <button class="btn btn-primary">Add a new artwork</button>
+    <% end %>
     <h1><%= @artist.first_name %>'s Gallery</h1>
     <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
   </div>

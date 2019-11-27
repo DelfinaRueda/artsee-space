@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="cards">
-    <% artworks.each do |artwork| %>
-    <div class="class-category">
-      <div class="card-top">
-        <a href="#"><img src="<%= artwork.artwork_pic %>" alt="artwork-pic"></a>
-        <div class="overlay">
-        <p><%= artwork.description %></p>
+  <div class="row">
+    <div class="cards">
+      <% @artworks.each do |artwork| %>
+      <div class="class-category">
+          <a href="#">
+          <div class="card-top"><%= render partial: 'shared/artwork', locals: { artwork: artwork} %></a>
+          <div class="overlay">
+          <p><%= artwork.description %></p>
+          </div>
+        </div>
+        <div class="card-bottom" style="margin-left: 15px">
+            <h4><%= artwork.title %></h4>
+            <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
         </div>
       </div>
-      <div class="card-bottom" style="margin-left: 15px">
-          <h4><%= artwork.title %></h4>
-          <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
