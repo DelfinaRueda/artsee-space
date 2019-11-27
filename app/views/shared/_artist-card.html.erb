@@ -2,21 +2,11 @@
   <div class="card-artwork">
     <div id="<%= artist.username %>" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner">
+        <% unless artist.artworks.count == 0 %>
         <% artist.artworks.where(user_id: artist.id).each_with_index do |artwork, i| %>
-          <% if i == 0 %>
-            <div class="carousel-item active">
-              <% unless artist.artworks.count == 0 %>
+            <!-- Image & caption -->
+            <div class="carousel-item <% if i == 0 %>active<% end %>">
                 <img class="d-block w-100" src="<%= artwork.artwork_pic %>" alt="Slide">
-              <% end %>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= artwork.title %></h5>
-              </div>
-            </div>
-          <% else %>
-            <div class="carousel-item">
-              <% unless artist.artworks.count == 0 %>
-                <img class="d-block w-100" src="<%= artwork.artwork_pic %>" alt="Slide">
-              <% end %>
               <div class="carousel-caption d-none d-md-block">
                 <h5><%= artwork.title %></h5>
               </div>
@@ -24,6 +14,7 @@
           <% end %>
         <% end %>
       </div>
+      <!-- Controlls -->
       <a class="carousel-control-prev" href="#<%= artist.username %>" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -34,10 +25,11 @@
       </a>
     </div>
   </div>
-  <div class="card-profile">
+  <!-- Card Bottom -->
+  <a class="card-profile" href="<%= artist_path(artist) %>">
     <img src="<%= artist.profile_pic %>" alt="Profile picture">
     <div class="profile-info">
       <h5><%= artist.first_name %> <%= artist.last_name %></h5>
     </div>
-  </div>
+  </a>
 </div>
