@@ -28,6 +28,17 @@
     <p><%= @artwork.description*10 %></p>
   </div>
   <% if @artworks.length > 1 %>
+  <div id="comments">
+  <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
+    <% if @artwork.comments.length == 0 %>
+     <p>Be the first to leave a comment about <%= @artwork.title %></p>
+    <% else %>
+      <% @artwork.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+    <% end %>
+  <%= render 'comments/form', artwork: @artwork, comment: @comment %>
+  </div>
     <h4>Other Artworks by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h4>
   <% end %>
   <div class="row">
@@ -52,21 +63,5 @@
     </div>
   </div>
 </div>
-
-
-<h2>
-  <%= pluralize @artwork.comments.size, "comment" %>
-</h2>
-
-<div id="comments">
-  <% if @artwork.comments.length == 0 %>
-   <p>Be the first to leave a comment about <%= @artwork.title %></p>
-  <% else %>
-    <% @artwork.comments.each do |comment| %>
-      <%= render 'comments/show', comment: comment %>
-    <% end %>
-  <% end %>
-</div>
-<%= render 'comments/form', artwork: @artwork, comment: @comment %>
 
 
