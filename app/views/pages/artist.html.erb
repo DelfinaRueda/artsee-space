@@ -30,6 +30,7 @@
   </div>
 
   <div class="gallery">
-    <%= render partial: 'shared/gallery', locals: { artworks: @artworks, title: @artist.first_name } %>
+    <h1><%= @artist.first_name %>'s Gallery</h1>
+    <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
   </div>
 </div>
