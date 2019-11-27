@@ -2,11 +2,12 @@
   display: flex;
   align-items: flex-start;
   padding: 16px;
+  padding-left: 32px;
 }
 
 .profile-card {
   position: sticky;
-  top: 10px;
+  top: 32px;
   text-align: center;
   width: 300px;
   padding: 30px;
@@ -33,4 +34,8 @@
       margin-left: 8px;
     }
   }
+}
+
+.gallery {
+  text-align: center;
 }
