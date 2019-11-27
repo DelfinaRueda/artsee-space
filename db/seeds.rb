@@ -13,6 +13,17 @@ User.destroy_all
 
 puts 'Creating users...'
 
+user = User.new(
+    first_name: "Art",
+    last_name: "See",
+    email: "artsee@gmail.com",
+    password: "123456789",
+    username: "artsee",
+    phone_number: "12345678910",
+    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+)
+user.save!
+
 50.times do
   user = User.new(
     first_name: Faker::Name.first_name,
