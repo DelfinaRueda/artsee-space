@@ -7,7 +7,11 @@ class PagesController < ApplicationController
   end
 
   def artists
-    @artists = User.all
+    if params[:query].present?
+      @artists = User.global_search(params[:query])
+    else
+      @artists = User.all
+    end
   end
 
   def artist

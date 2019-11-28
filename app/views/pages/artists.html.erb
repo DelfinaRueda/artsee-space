@@ -1,5 +1,6 @@
 <div class="container ">
   <h1 class="text-center">Artists</h1>
+  <%= render 'shared/search-form-artists' %>
   <div class="artists-cards">
     <% @artists.each do |artist| %>
       <%= render partial: 'shared/artist-card', locals: { artist: artist } %>

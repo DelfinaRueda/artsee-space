@@ -2,7 +2,12 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @artworks = Artwork.all
+    if params[:query].present?
+      @artworks = Artwork.global_search(params[:query])
+
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def show
