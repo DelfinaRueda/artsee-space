@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+<<<<<<< HEAD
 gem 'money-rails'
+=======
+gem 'cloudinary', '~> 1.12.0'
+>>>>>>> 5bf306429ebc58b7e836a80e8a259da2ce0225d9
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
