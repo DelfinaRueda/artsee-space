@@ -1,27 +1,26 @@
 .container-top {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  margin: 10px 60px 0px 40px;
+  margin: 10px 60px 0 40px;
   padding-bottom: 20px;
   border-bottom: 2px solid $light-gray;
 
   .image-container {
-    margin-right:40px;
+    margin-right: 40px;
 
-   img {
-    width: 100%;
-    height:auto;
-    max-height: 600px;
-   }
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+    }
   }
 
-  .artist-info .info-top{
-
+  .artist-info .info-top {
     width: 400px;
     height: 555px;
 
     h3 {
-      text-align:center;
+      text-align: center;
     }
 
     & p {
@@ -45,10 +44,48 @@
 }
 
 .container-bottom {
-
   margin-top: 24px;
   margin-bottom: 24px;
+
   & p {
     color: grey;
+  }
+}
+
+.artwork-cards {
+  @extend .cards;
+  display: block !important;
+  width: 100%;
+  column-count: 4;
+
+  .artwork-card {
+    @extend .card;
+    display: inline-block !important;
+    margin-bottom: 40px;
+
+    .overlay {
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      padding-left: 10%;
+      padding-right: 10%;
+      color: rgba(0, 0, 0, 0);
+      p, h4 { width: 100%; }
+    }
+
+    img {
+      width: 100%;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
   }
 }

@@ -1,21 +1,110 @@
-<div class="container">
+<div class="">
   <h2>Artworks</h2>
   <div class="row">
-    <div class="cards">
+    <div class="artwork-cards">
       <% @artworks.each do |artwork| %>
-      <div class="class-category">
-        <div class="card-top">
+        <div class="artwork-card card-top">
           <a href="#"><img src="<%= artwork.artwork_pic %>" alt="artwork-pic"></a>
           <div class="overlay">
-          <p><%= artwork.description %></p>
+            <h4><%= artwork.title %></h4>
+            <p><%= artwork.user.first_name %>
+              <%=artwork.user.last_name %></p>
+            <p><%= artwork.description %></p>
           </div>
         </div>
-        <div class="card-bottom" style="margin-left: 15px">
-            <h4><%= artwork.title %></h4>
-            <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>
+</div>
+
+
+
+
+<div class="container">
+
+  <h1 class="my-4 font-weight-bold">Masonry - Bootstrap 4 grid</h1>
+
+  <div class="grid">
+    <div class="grid-sizer col-md-3"></div>
+    <div class="grid-item col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Panel title</h5>
+          <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+          <a class="card-link">Card link</a>
+          <a class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          This is some text within a panel body.
+        </div>
+      </div>
+    </div>
+    <div class="grid-item col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Panel title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Panel subtitle</h6>
+          <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+          <a href="#!" class="card-link mr-3">Card link</a>
+          <a href="#!" class="card-link ml-0">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Quote
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item col-md-3 mb-4">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-item col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="font-weight-bold mb-3">Panel title</h5>
+          <p class="mb-0">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="#!" class="card-link mr-3">Card link</a>
+          <a href="#!" class="card-link ml-0">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item col-md-3 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#!" class="btn btn-primary btn-sm">Button</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
