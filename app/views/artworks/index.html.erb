@@ -3,17 +3,5 @@
     <h1 class="text-center">Artworks</h1>
     <%= render 'shared/search-form' %>
   </div>
-  <div class="artwork-cards">
-    <% @artworks.each do |artwork| %>
-      <div class="artwork-card">
-        <img src="<%= artwork.artwork_pic %>" alt="artwork-pic">
-        <a class="overlay" href="<%= artwork_path(artwork) %>">
-          <h4><%= artwork.title %></h4>
-          <p><%= artwork.user.first_name %>
-            <%=artwork.user.last_name %></p>
-          <p><%= artwork.description %></p>
-        </a>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
 </div>
