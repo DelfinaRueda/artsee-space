@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = current_user.orders.where(params[:id])
+  end
+
   def show
     @order = current_user.orders.find(params[:id])
   end
