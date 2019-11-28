@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :artworks do
     resources :comments, only: [:create]
   end
+  resources :orders, only: [:index, :show, :create] do
+    resources :payments, only: :new
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

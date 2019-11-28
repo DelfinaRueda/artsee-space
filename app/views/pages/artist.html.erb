@@ -12,14 +12,6 @@
       <h2><%= @artist.first_name %> <%= @artist.last_name %></h2>
       <p>Email: <%= @artist.email %></p>
       <p>Mobile Number: <%= @artist.phone_number %></p>
-      <div class="profile-description">
-        <h4>Personal Profile:</h4>
-        <% if @artist.description.present? %>
-          <p><%= @artist.description %></p>
-          <% else %>
-          <p>Hi my name is <%= @artist.first_name %> <%= @artist.last_name %>. Please check out my gallery!</p>
-          <% end %>
-      </div>
     </div>
     <div class="footer-links">
       <a href="<%= @artist.facebook %>"><i class="fab fa-facebook"></i></a>
@@ -30,10 +22,18 @@
   </div>
 
   <div class="gallery">
+    <div class="profile-description">
+      <h4>Personal Profile:</h4>
+      <% if @artist.description.present? %>
+        <p><%= @artist.description %></p>
+        <% else %>
+        <p>Hi my name is <%= @artist.first_name %> <%= @artist.last_name %>. Please check out my gallery!</p>
+        <% end %>
+    </div>
+    <h1><%= @artist.first_name %>'s Gallery</h1>
     <%= link_to new_artwork_path do %>
     <button class="btn btn-primary">Add a new artwork</button>
     <% end %>
-    <h1><%= @artist.first_name %>'s Gallery</h1>
     <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
   </div>
 </div>

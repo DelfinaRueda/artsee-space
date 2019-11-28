@@ -7,6 +7,7 @@
       <h3><%= @artwork.title %></h3>
       <h5>By <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></h5>
       <p><%= @artwork.user.description %> <%= @artwork.description*5 %></p>
+      <p><strong>Dimensions: </strong><%= @artwork.dimensions %> cm</p>
       <p><strong>Category:</strong> <%= @artwork.category %></p>
       <div class="footer-links">
         <a href="#"><i class="fab fa-pinterest"></i></a>
@@ -16,7 +17,11 @@
       </div>
     </div>
     <div class="info-bottom">
-      <p>Price: ADD PRICE LATER</p>
+      <p><p>Amount: <%= humanized_money_with_symbol(@artwork.price_cents) %></p></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'artwork_id', @artwork.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
       <a class="btn btn-success"href="#">Add to Cart</a>
     </div>
   </div>
@@ -27,7 +32,7 @@
     <p><%= @artwork.description*10 %></p>
   </div>
   <div id="comments">
-  <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
+    <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
     <% if @artwork.comments.length == 0 %>
      <p>Be the first to leave a comment about <%= @artwork.title %></p>
     <% else %>
@@ -47,7 +52,7 @@
         <div class="class-category">
           <div class="card-top">
             <%= link_to artwork_path(id) do %>
-            <img src="<%= Artwork.find(id).artwork_pic %>" alt="artwork-pic">
+            <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
             <div class="overlay">
             <p><%= Artwork.find(id).description %></p>
             </div>
