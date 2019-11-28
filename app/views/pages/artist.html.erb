@@ -28,7 +28,7 @@
       <%= link_to new_artwork_path do %>
       <button class="btn btn-primary">Add a new artwork</button>
       <% end %>
-      <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
+      <%= render partial: 'shared/gallery', locals: { artworks: @artworks, title: "Gallery" } %>
     </div>
   </div>
 </div>
