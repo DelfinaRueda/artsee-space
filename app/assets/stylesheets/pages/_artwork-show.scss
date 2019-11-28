@@ -1,28 +1,27 @@
 .container-top {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  margin: 10px 60px 0px 40px;
+  margin: 10px 60px 0 40px;
   padding-bottom: 20px;
   border-bottom: 2px solid $light-gray;
 
   .image-container {
-    margin-right:40px;
+    margin-right: 40px;
 
-   img {
-    width: 100%;
-    height:auto;
-    max-height: 600px;
-    max-width: 1000px;
-   }
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+    }
+
   }
 
-  .artist-info .info-top{
-
+  .artist-info .info-top {
     width: 400px;
     height: 555px;
 
     h3 {
-      text-align:center;
+      text-align: center;
     }
 
     & p {
@@ -46,11 +45,57 @@
 }
 
 .container-bottom {
-
   margin-top: 24px;
   margin-bottom: 24px;
+
   & p {
     color: grey;
   }
 
+}
+
+
+.artwork-cards {
+  display: block !important;
+  width: 100%;
+  padding: 24px 32px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  column-gap: 26px;
+  column-count: 4;
+  @media screen and (max-width: 1400px) { column-count: 3; }
+  @media screen and (max-width: 1000px) { column-count: 2; }
+  @media screen and (max-width: 700px) { column-count: 1; }
+
+  .artwork-card {
+    @extend .card;
+    display: inline-block !important;
+    margin-bottom: 26px;
+
+    .overlay {
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      padding-left: 10%;
+      padding-right: 10%;
+      p, h4 { width: 100%; }
+      display: none;
+      text-decoration: none;
+      background-color: rgba(255,255,255,0.85)
+    }
+    &:hover .overlay { display: flex; }
+
+    img {
+      width: 100%;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
 }
