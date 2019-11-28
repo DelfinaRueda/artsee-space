@@ -57,6 +57,7 @@ User.all.each do |user|
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       artwork_pic: ["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample,
+      price_cents: rand(100..1000),
     )
     artwork.save!
   end
