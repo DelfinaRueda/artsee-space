@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_110935) do
+ActiveRecord::Schema.define(version: 2019_11_28_121328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_110935) do
     t.string "artwork_pic"
     t.string "title"
     t.integer "price_cents", default: 0, null: false
+    t.text "dimensions"
     t.index ["gallery_id"], name: "index_artworks_on_gallery_id"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
