@@ -3,7 +3,7 @@
     <div class="col-md-3"><%= cl_image_tag @order.artwork.photo.key, width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.artwork.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount/100 %></strong></p>
+      <p>Purchase of <strong><%= @order.artwork.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>

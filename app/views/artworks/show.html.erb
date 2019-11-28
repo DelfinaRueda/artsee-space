@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="info-bottom">
-      <p><p>Amount: <%= humanized_money_with_symbol(@artwork.price_cents/100) %></p></p>
+      <p><p>Amount: <%= humanized_money_with_symbol(@artwork.price_cents) %></p></p>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'artwork_id', @artwork.id %>
         <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
