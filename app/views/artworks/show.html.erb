@@ -47,7 +47,7 @@
         <div class="class-category">
           <div class="card-top">
             <%= link_to artwork_path(id) do %>
-            <img src="<%= Artwork.find(id).artwork_pic %>" alt="artwork-pic">
+            <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
             <div class="overlay">
             <p><%= Artwork.find(id).description %></p>
             </div>
