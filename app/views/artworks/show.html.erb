@@ -17,7 +17,11 @@
       </div>
     </div>
     <div class="info-bottom">
-      <p>Price: ADD PRICE LATER!</p>
+      <p><p>Amount: <%= humanized_money_with_symbol(@artwork.price_cents) %></p></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'artwork_id', @artwork.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
       <a class="btn btn-success"href="#">Add to Cart</a>
     </div>
   </div>
