@@ -1,4 +1,49 @@
 .page-container {
   width: 100%;
   padding-top: 40px;
+
+  .container-with-search {
+    margin: 0px 30px;
+    display:flex;
+    justify-content: space-between;
+
+    .search-form {
+      display: flex;
+      justify-content: space-between;
+
+      .form-control {
+        margin-right: 20px;
+        width: 250px;
+      }
+
+      .btn {
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  padding-top: 40px;
+
+  .container-with-search {
+    margin: 0px 30px;
+    display:flex;
+    justify-content: space-between;
+
+    .search-form {
+      display: flex;
+      justify-content: space-between;
+
+      .form-control {
+        margin-right: 20px;
+        width: 250px;
+      }
+
+      .btn {
+        border-radius: 8px;
+      }
+    }
+  }
 }

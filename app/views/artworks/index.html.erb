@@ -1,6 +1,8 @@
 <div class="page-container">
-  <h1 class="text-center">Artworks</h1>
-  <%= render 'shared/search-form' %>
+  <div class="container-with-search">
+    <h1 class="text-center">Artworks</h1>
+    <%= render 'shared/search-form' %>
+  </div>
   <div class="artwork-cards">
     <% @artworks.each do |artwork| %>
       <div class="artwork-card">
