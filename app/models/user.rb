@@ -8,4 +8,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :galleries
   has_many :orders
+
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :first_name, :last_name ],
+  associated_against: {
+    artworks: [ :category, :title, :description ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
+
