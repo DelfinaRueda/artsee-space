@@ -1,18 +1,24 @@
-<h1>Add a new artwork</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="form col-12 col-lg-6">
+      <h1>Add a new artwork</h1>
 
-<%= simple_form_for [@artwork] do |f| %>
+      <%= simple_form_for [@artwork] do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :photo, as: :file, label: "Artwork" %>
-    <%= f.input :category %>
-    <%= f.input :description %>
-    <%= f.input :price_cents %>
+        <div class="form-inputs">
+          <%= f.input :title %>
+          <%= f.input :photo, as: :file, label: "Artwork" %>
+          <%= f.input :category %>
+          <%= f.input :description %>
+          <%= f.input :price_cents %>
+        </div>
+
+        <div class="form-actions btn btn-primary">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+      <br>
+      <%= link_to "Back to profile", artist_path(current_user)  %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
-<%= link_to "Back to profile", artist_path(current_user)  %>
+</div>
