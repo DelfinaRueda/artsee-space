@@ -4,13 +4,16 @@
 }
 
 .artists-cards{
+  // Flex as fallback
   display: flex;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .artist-card {
   overflow: hidden;
-  flex: 1 1 400px;
+  flex: 1 1 250px;
   margin: 40px;
   border-radius: 4px;
   border: 1px solid rgba(80, 80, 80, 0.2);
