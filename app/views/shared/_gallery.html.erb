@@ -1,16 +1,12 @@
-<div class="page-container">
-  <h1 class="text-center"><%= title %></h1>
-  <div class="artwork-cards">
-    <% artworks.each do |artwork| %>
-      <div class="artwork-card">
-        <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
-        <a class="overlay" href="<%= artwork_path(artwork) %>">
-          <h4><%= artwork.title %></h4>
-          <p><%= artwork.user.first_name %>
-            <%=artwork.user.last_name %></p>
-          <p><%= artwork.description %></p>
-        </a>
-      </div>
-    <% end %>
-  </div>
-</div>
+<div class="artwork-cards">
+  <% artworks.each do |artwork| %>
+    <div class="artwork-card">
+      <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
+      <a class="overlay" href="<%= artwork_path(artwork) %>">
+        <h4><%= artwork.title %></h4>
+        <p><%= artwork.user.first_name %>
+          <%=artwork.user.last_name %></p>
+        <p><%= artwork.description %></p>
+      </a>
+    </div>
+  <% end %>
