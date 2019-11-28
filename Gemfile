@@ -1,15 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 gem 'money-rails'
-=======
-=======
-gem 'money-rails'
->>>>>>> master
 gem 'cloudinary', '~> 1.12.0'
->>>>>>> 5bf306429ebc58b7e836a80e8a259da2ce0225d9
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -18,6 +11,7 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'faker'
+gem 'stripe'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

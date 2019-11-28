@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_11_28_104146) do
-=======
-ActiveRecord::Schema.define(version: 2019_11_27_140512) do
->>>>>>> 5bf306429ebc58b7e836a80e8a259da2ce0225d9
+ActiveRecord::Schema.define(version: 2019_11_28_110935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +67,19 @@ ActiveRecord::Schema.define(version: 2019_11_27_140512) do
     t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "artwork_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id"
+    t.bigint "artwork_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_orders_on_artwork_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,4 +108,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_140512) do
   add_foreign_key "comments", "artworks"
   add_foreign_key "comments", "users"
   add_foreign_key "galleries", "users"
+  add_foreign_key "orders", "artworks"
+  add_foreign_key "orders", "users"
 end
