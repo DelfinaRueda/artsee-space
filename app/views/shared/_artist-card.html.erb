@@ -11,9 +11,6 @@
                 <% else %>
                   <img src="<%= artwork.artwork_pic %>" alt="artwork-pic" class="d-block w-100">
                 <% end %>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= artwork.title %></h5>
-              </div>
             </div>
           <% end %>
         <% end %>
@@ -33,7 +30,8 @@
   <a class="card-profile" href="<%= artist_path(artist) %>">
     <%= render partial: 'shared/avatar', locals: { artist: artist } %>
     <div class="profile-info">
-      <h5><%= artist.first_name %> <%= artist.last_name %></h5>
+      <h6><%= artist.first_name %> <%= artist.last_name %></h6>
     </div>
   </a>
 </div>
+
