@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: artwork.title,
-        images: [url_for artwork.photo],
         amount: (artwork.price_cents) * 100,
         currency: 'gbp',
         quantity: 1

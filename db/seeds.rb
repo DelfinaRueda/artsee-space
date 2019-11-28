@@ -7,6 +7,7 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Order.destroy_all
 Artwork.destroy_all
 Gallery.destroy_all
 User.destroy_all
