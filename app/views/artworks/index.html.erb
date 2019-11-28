@@ -1,4 +1,7 @@
 <div class="page-container">
-  <h1 class="text-center">Artworks</h1>
+  <div class="container-with-search">
+    <h1 class="text-center">Artworks</h1>
+    <%= render 'shared/search-form' %>
+  </div>
   <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
 </div>

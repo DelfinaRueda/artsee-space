@@ -1,4 +1,5 @@
 <%= form_tag artworks_path, method: :get do %>
+<div class="search-form">
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -6,3 +7,4 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+</div>
