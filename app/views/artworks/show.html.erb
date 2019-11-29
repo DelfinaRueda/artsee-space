@@ -1,5 +1,100 @@
+<<<<<<< Updated upstream
 <img src="<%= @artwork.artwork_pic %>" alt=""><br>
 Category: <%= @artwork.category %><br>
 Description: <%= @artwork.description %><br>
 Gallery Id: <%= @artwork.gallery_id %><br>
 Artist: <%= @artwork.user.first_name %> <%= @artwork.user.last_name %><br>
+=======
+<div class="page-container">
+  <div class="container-top">
+    <div class="image-container">
+      <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
+    </div>
+    <div class="artist-info">
+      <div class="info-top">
+        <h3><%= @artwork.title %></h3>
+        <h5>By
+          <%= @artwork.user.first_name %>
+          <%= @artwork.user.last_name %></h5>
+        <p><%= @artwork.user.description %>
+          <%= @artwork.description*5 %></p>
+        <p>
+          <strong>Dimensions:
+          </strong><%= @artwork.dimensions %>
+          cm</p>
+        <p>
+          <strong>Category:</strong>
+          <%= @artwork.category %></p>
+        <div class="footer-links">
+          <a href="#">
+            <i class="fab fa-pinterest"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      <div class="info-bottom">
+        <p>Amount:
+          <%= humanized_money_with_symbol(@artwork.price_cents) %></p>
+        <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'artwork_id', @artwork.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+      <a class="btn btn-success" href="#">Add to Cart</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="container-bottom">
+    <h4>
+      Description
+    </h4>
+    <p><%= @artwork.description*10 %></p>
+  </div>
+  <div id="comments">
+    <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
+    <% if @artwork.comments.length == 0 %>
+      <p>Be the first to leave a comment about
+        <%= @artwork.title %></p>
+    <% else %>
+      <% @artwork.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render 'comments/form', artwork: @artwork, comment: @comment %>
+  <% if @artworks.length > 1 %>
+    <h4>Other Artworks by
+      <%= @artwork.user.first_name %>
+      <%= @artwork.user.last_name %></h4>
+  <% end %>
+  <div class="row">
+    <div class="cards">
+      <% @artwork.gallery.artwork_ids.each do |id| %>
+        <% if @artwork.id != id %>
+          <div class="class-category">
+            <div class="card-top">
+              <%= link_to artwork_path(id) do %>
+              <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
+              <div class="overlay">
+                <p><%= Artwork.find(id).description %></p>
+              </div>
+            </div>
+          <% end %>
+          <div class="card-bottom" style="margin-left: 15px">
+            <h4><%= Artwork.find(id).title %></h4>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+>>>>>>> Stashed changes
