@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
+  border-bottom: 2px solid $light-gray;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar .navbar-brand img {
+  width: 120px;
+}
+
+.nav-item .nav-link {
+  margin-right: 16px;
+
+  &:hover {
+    border-bottom: 1px solid $gray;
+  }
+}
+
+.nav-item .active .nav-link {
+  margin-right: 8px;
+
+  &:hover {
+    border-bottom: 1px solid $gray;
+  }
 }

@@ -1,0 +1,41 @@
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  padding-left: 32px;
+}
+
+.profile-card {
+  position: sticky;
+  top: 32px;
+  text-align: center;
+  width: 300px;
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(80, 80, 80, 0.2);
+  box-shadow: 8px 8px 8px rgba(60, 60, 100, 0.2);
+  .profile-image {
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .link {
+    .btn {
+      border-radius: 6px;
+    }
+  }
+  .footer-links {
+    .fab {
+      font-size: 30px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  }
+}
+
+.gallery {
+  text-align: center;
+}

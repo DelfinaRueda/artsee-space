@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'money-rails'
+gem 'cloudinary', '~> 1.12.0'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -9,6 +11,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'faker'
+gem 'stripe'
+gem 'stripe_event'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -16,9 +20,11 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pg_search', '~> 2.3.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'browser_sync_rails'
 end
 
 group :development, :test do

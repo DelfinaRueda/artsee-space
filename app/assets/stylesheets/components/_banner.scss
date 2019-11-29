@@ -1,0 +1,62 @@
+.banner-container{
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(60, 60, 100, 0.1);
+  .carousel-control-prev, .carousel-control-next, .carousel-indicators {
+    filter: invert(100%);
+  }
+}
+
+.home-banner-item {
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+  img {
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+
+    h1 {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+.category-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  .category-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 25vh;
+    border: 1px solid rgba(80, 80, 80, 0.2);
+  }
+}
+
+.home-banner-item {
+  .category-card {
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
