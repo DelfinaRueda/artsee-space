@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner-container">
+  <div class="banner">
+    <%= render partial: 'shared/banner' %>
+  </div>
+</div>
+<div class="container-cards">
+  <h2>Popular Creators</h2>
+  <div class="artists-cards">
+    <% @users.sample(6).each do |user| %>
+      <%= render partial: 'shared/artist-card', locals: { artist: user } %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="join-banner">
+
+  </div>
+</div>

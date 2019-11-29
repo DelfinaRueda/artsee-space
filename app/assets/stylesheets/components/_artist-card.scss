@@ -1,0 +1,65 @@
+.container-cards {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  h2 {
+    margin-top: 24px;
+  }
+}
+
+.artists-cards{
+  // Flex as fallback
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.artist-card {
+  overflow: hidden;
+  padding: 10px 10px;
+  flex: 1 1 250px;
+  margin: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(40, 40, 40, 0.2);
+  box-shadow: 4px 4px 4px rgba(60, 60, 100, 0.1);
+
+
+  .card-artwork {
+
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      padding: 0;
+      bottom: 0;
+    }
+  }
+  .card-profile {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 10px;
+    color: $body-color;
+    text-decoration: none;
+    img {
+      width: 40px;
+      height: 40px;
+      margin: 4px;
+      margin-right: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(80, 80, 80, 0.1);
+      object-fit: cover;
+    }
+    .profile-info {
+      h5 {
+        margin: 0;
+      }
+      p {
+
+      }
+    }
+  }
+}

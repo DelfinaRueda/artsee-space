@@ -1,0 +1,21 @@
+.form {
+  padding: 40px 48px 24px 48px;
+  background-color: white;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px 4px rgba(8, 8, 8, .08);
+
+  .btn {
+    color:white;
+    border-radius: 24px;
+    padding: 4px 8px;
+    width:100%;
+  }
+}
+
+.form-control {
+  border-radius: 42px;
+  box-shadow: 1px 1px 1px rgba(8, 8, 8, .05);
+  border-color: black;
+  vertical-align: center;
+}

@@ -7,11 +7,23 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Order.destroy_all
 Artwork.destroy_all
 Gallery.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
+
+user = User.new(
+    first_name: "Art",
+    last_name: "See",
+    email: "artsee@gmail.com",
+    password: "123456789",
+    username: "artsee",
+    phone_number: "12345678910",
+    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+)
+user.save!
 
 50.times do
   user = User.new(
@@ -21,6 +33,7 @@ puts 'Creating users...'
     password: "123456789",
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
+    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
   )
   user.save!
 end
@@ -39,11 +52,14 @@ puts 'Creating artworks...'
 User.all.each do |user|
   rand(1..10).times do
     artwork = Artwork.new(
+      title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
       description: Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
-      artwork_pic: "https://source.unsplash.com/collection/5057079",
+      dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+      artwork_pic: ["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample,
+      price_cents: rand(100..1000),
     )
     artwork.save!
   end

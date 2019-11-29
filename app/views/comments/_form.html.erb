@@ -1,0 +1,6 @@
+<%= simple_form_for([ artwork, comment ], remote: user_signed_in?) do |f| %>
+  <%= f.input :content, :placeholder => "Write a comment...", label: false %>
+  <%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>
+
+
