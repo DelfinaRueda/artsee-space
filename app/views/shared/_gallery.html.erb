@@ -7,7 +7,7 @@
         <p><%= artwork.user.first_name %>
           <%=artwork.user.last_name %></p>
           <% if artwork.description.length > 100 %>
-            <p><%= artwork.description.slice(0,100)%>...</p>
+            <p><%= artwork.description.truncate_words(20)%></p>
           <% else %>
            <p><%= artwork.description%></p>
           <% end %>

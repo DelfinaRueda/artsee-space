@@ -9,8 +9,7 @@
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5>
-        <p><%= @artwork.user.description %>
-          <%= @artwork.description*4 %></p>
+        <p><%= @artwork.user.description %></p>
         <p>
           <strong>Dimensions:
           </strong><%= @artwork.dimensions %>
@@ -48,7 +47,7 @@
     <h4>
       Description
     </h4>
-    <p><%= @artwork.description*10 %></p>
+    <p><%= @artwork.description%></p>
   </div>
   <div id="comments">
     <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
@@ -76,9 +75,14 @@
               <%= link_to artwork_path(id) do %>
               <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
               <div class="overlay">
+                <% if  Artwork.find(id).description.length > 250%>
+                <p><%= Artwork.find(id).description.truncate_words(50)%></p>
+                <% else %>
                 <p><%= Artwork.find(id).description%></p>
+                <% end %>
               </div>
             </div>
+            <% end %>
           <div class="card-bottom" style="margin-left: 15px">
             <h4><%= Artwork.find(id).title %></h4>
           </div>
