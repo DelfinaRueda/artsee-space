@@ -1,6 +1,17 @@
 function refreshForm(innerHTML) {
   const newCommentForm = document.getElementById('new_comment');
   newCommentForm.innerHTML = innerHTML;
+
+}
+
+function changeTitle(innerHTML) {
+  const title = document.querySelector('#comments h4');
+  title.innerHTML = innerHTML;
+}
+
+function changeText(innerHTML) {
+  const text = document.querySelector('#comments p');
+  text.innerHTML = innerHTML;
 }
 
 function addComment(commentHTML) {
@@ -12,5 +23,8 @@ function addComment(commentHTML) {
   refreshForm('<%= j render "comments/form", artwork: @artwork, comment: @comment %>');
 <% else %>
   addComment('<%= j render "comments/show", comment: @comment %>');
+  changeTitle('<%= pluralize @artwork.comments.size, "comment" %>');
+  changeText('');
   refreshForm('<%= j render "comments/form", artwork: @artwork, comment: Comment.new %>');
 <% end %>
+
