@@ -10,7 +10,7 @@
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5>
         <p><%= @artwork.user.description %>
-          <%= @artwork.description*5 %></p>
+          <%= @artwork.description*4 %></p>
         <p>
           <strong>Dimensions:
           </strong><%= @artwork.dimensions %>
@@ -79,7 +79,7 @@
               <%= link_to artwork_path(id) do %>
               <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
               <div class="overlay">
-                <p><%= Artwork.find(id).description %></p>
+                <p><%= Artwork.find(id).description%></p>
               </div>
             </div>
           <% end %>
