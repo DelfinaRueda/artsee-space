@@ -1,3 +1,17 @@
+.page-container {
+
+  margin-bottom:16px;
+
+  .btn {
+    border-radius: 12px;
+  }
+
+  #new_comment {
+    margin-bottom: 24px;
+  }
+
+}
+
 .container-top {
   display: flex;
   justify-content: space-between;
@@ -19,6 +33,15 @@
   .artist-info .info-top {
     width: 400px;
     height: 555px;
+
+    a {
+      text-decoration: none;
+      color:black;
+
+      :hover {
+        color: grey;
+      }
+    }
 
     h3 {
       text-align: center;

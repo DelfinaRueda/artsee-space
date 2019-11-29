@@ -18,18 +18,22 @@
     </div>
     <div class="gallery">
       <div class="profile-description">
-        <h4>Personal Profile:</h4>
+        <h3>About</h3>
         <% if @artist.description.present? %>
           <p><%= @artist.description %></p>
           <% else %>
           <p>Hi my name is <%= @artist.first_name %> <%= @artist.last_name %>. Please check out my gallery!</p>
           <% end %>
       </div>
-      <h1><%= @artist.first_name %>'s Gallery</h1>
-      <%= link_to new_artwork_path do %>
-      <button class="btn btn-primary">Add a new artwork</button>
-      <% end %>
-      <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
+      <div class="gallery-profile">
+        <h1><%= @artist.first_name %>'s Gallery</h1>
+        <% if params[:id].to_i == current_user.id %>
+          <%= link_to new_artwork_path do %>
+            <button class="btn btn-primary">Add a new artwork</button>
+          <% end %>
+        <% end %>
+        <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(60, 60, 100, 0.1);
+  .btn {
+    border-radius: 8px;
+  }
   .carousel-control-prev, .carousel-control-next, .carousel-indicators {
     filter: invert(100%);
   }
