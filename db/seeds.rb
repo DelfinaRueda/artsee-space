@@ -25,6 +25,7 @@ user = User.new(
 )
 user.save!
 
+
 50.times do
   user = User.new(
     first_name: Faker::Name.first_name,
@@ -51,7 +52,7 @@ end
 puts 'Creating artworks...'
 
 User.all.each do |user|
-  rand(1..10).times do
+  rand(5..15).times do
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
@@ -67,3 +68,19 @@ User.all.each do |user|
 end
 
 puts 'Finished!'
+
+user = User.new(
+    first_name: "Vinvan",
+    last_name: "Go",
+    email: "vinny@gmail.com",
+    password: "123456789",
+    username: "discount_vancough",
+    phone_number: "12345678910",
+    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+)
+user.save!
+
+gallery = Gallery.new(
+  user_id: User.find_by(username: "discount_vancough").id,
+  )
+gallery.save!
