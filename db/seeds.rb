@@ -34,6 +34,7 @@ user.save!
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
     profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+    description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
   )
   user.save!
 end
@@ -54,7 +55,7 @@ User.all.each do |user|
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
-      description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
+      description: Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",

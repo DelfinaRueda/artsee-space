@@ -17,7 +17,7 @@
             <%= f.input :last_name %>
             <%= f.input :photo, as: :file %>
             <%= f.input :phone_number %>
-            <%= f.input :description %>
+            <%= f.input :description,  input_html: { maxlength: 200 }, placeholder: " Max number of characters 200"%>
 
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
