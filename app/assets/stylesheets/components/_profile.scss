@@ -13,7 +13,7 @@
   padding: 30px;
   border-radius: 6px;
   border: 1px solid rgba(80, 80, 80, 0.2);
-  box-shadow: 8px 8px 8px rgba(60, 60, 100, 0.2);
+  box-shadow: 4px 4px 4px rgba(40, 40, 80, 0.1);
   .profile-image {
     img {
       width: 200px;
@@ -38,4 +38,18 @@
 
 .gallery {
   text-align: center;
+
+
+  .profile-description {
+
+    p {
+      color:grey;
+    }
+  }
+
+    // margin-left: 32px;
+  // .gallery-profile {
+  // text-align: center;
+
+  // }
 }

@@ -6,9 +6,10 @@
     <div class="artist-info">
       <div class="info-top">
         <h3><%= @artwork.title %></h3>
+        <a href="<%=artist_path(@artwork.user)%>">
         <h5>By
           <%= @artwork.user.first_name %>
-          <%= @artwork.user.last_name %></h5>
+          <%= @artwork.user.last_name %></h5></a>
         <p><%= @artwork.user.description %></p>
         <p>
           <strong>Dimensions:
