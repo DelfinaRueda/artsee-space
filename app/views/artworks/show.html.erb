@@ -42,7 +42,6 @@
         <%= hidden_field_tag 'artwork_id', @artwork.id %>
         <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
       <% end %>
-      <a class="btn btn-success" href="#">Add to Cart</a>
     </div>
   </div>
 </div>
@@ -78,16 +77,16 @@
             <div class="card-top">
               <%= link_to artwork_path(id) do %>
               <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
-              <div class="overlay">
-                <p><%= Artwork.find(id).description %></p>
-              </div>
+                <div class="overlay">
+                  <p><%= Artwork.find(id).description %></p>
+                </div>
+              <% end %>
             </div>
           <% end %>
-          <% end %>
-          <div class="card-bottom" style="margin-left: 15px">
-            <h4><%= Artwork.find(id).title %></h4>
-          </div>
-        </div>
+            <div class="card-bottom" style="margin-left: 15px">
+              <h4><%= Artwork.find(id).title %></h4>
+            </div>
+         </div>
       <% end %>
     </div>
   </div>
