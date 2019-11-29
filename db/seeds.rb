@@ -54,7 +54,7 @@ User.all.each do |user|
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
-      description: Faker::TvShows::RickAndMorty.quote,
+      description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
