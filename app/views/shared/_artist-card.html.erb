@@ -1,37 +1,36 @@
-<div class="artist-card">
-  <div class="card-artwork">
-    <div id="<%= artist.username %>" class="carousel slide" data-ride="carousel" data-interval="false">
-      <div class="carousel-inner">
-        <% unless artist.artworks.count == 0 %>
-        <% artist.artworks.where(user_id: artist.id).each_with_index do |artwork, i| %>
-            <!-- Image & caption -->
-            <div class="carousel-item <% if i == 0 %>active<% end %>">
-                <% if artwork.photo.attached? %>
-                  <%= cl_image_tag artwork.photo.key, crop: :fill, class: "d-block w-100" %>
-                <% else %>
-                  <img src="<%= artwork.artwork_pic %>" alt="artwork-pic" class="d-block w-100">
-                <% end %>
-            </div>
-          <% end %>
-        <% end %>
+<% unless artist.artworks.count == 0 %>
+  <div class="artist-card">
+    <div class="card-artwork">
+      <div id="<%= artist.username %>" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <% artist.artworks.where(user_id: artist.id).each_with_index do |artwork, i| %>
+              <!-- Image & caption -->
+              <div class="carousel-item <% if i == 0 %>active<% end %>">
+                  <% if artwork.photo.attached? %>
+                    <%= cl_image_tag artwork.photo.key, crop: :fill, class: "d-block w-100" %>
+                  <% else %>
+                    <img src="<%= artwork.artwork_pic %>" alt="artwork-pic" class="d-block w-100">
+                  <% end %>
+              </div>
+            <% end %>
+        </div>
+        <!-- Controlls -->
+        <a class="carousel-control-prev" href="#<%= artist.username %>" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#<%= artist.username %>" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <!-- Controlls -->
-      <a class="carousel-control-prev" href="#<%= artist.username %>" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#<%= artist.username %>" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+    <!-- Card Bottom -->
+    <a class="card-profile" href="<%= artist_path(artist) %>">
+      <%= render partial: 'shared/avatar', locals: { artist: artist } %>
+      <div class="profile-info">
+        <h6><%= artist.first_name %> <%= artist.last_name %></h6>
+      </div>
+    </a>
   </div>
-  <!-- Card Bottom -->
-  <a class="card-profile" href="<%= artist_path(artist) %>">
-    <%= render partial: 'shared/avatar', locals: { artist: artist } %>
-    <div class="profile-info">
-      <h6><%= artist.first_name %> <%= artist.last_name %></h6>
-    </div>
-  </a>
-</div>
-
+<% end %>
