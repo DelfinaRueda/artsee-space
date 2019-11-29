@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
@@ -24,7 +24,7 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
     @artwork[:user_id] = current_user.id
-    @artwork[:gallery_id] = Gallery.find(current_user.id).id
+    @artwork[:gallery_id] = Gallery.find(current_user.galleries.first.id).id
     if @artwork.save
       redirect_to artist_path(@artwork.user)
     else
