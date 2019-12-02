@@ -11,6 +11,7 @@ Order.destroy_all
 Artwork.destroy_all
 Gallery.destroy_all
 User.destroy_all
+Event.destroy_all
 
 puts 'Creating users...'
 
@@ -67,7 +68,6 @@ User.all.each do |user|
   end
 end
 
-puts 'Finished!'
 
 user = User.new(
     first_name: "Vinvan",
@@ -84,3 +84,20 @@ gallery = Gallery.new(
   user_id: User.find_by(username: "discount_vancough").id,
   )
 gallery.save!
+
+puts 'Creating events...'
+
+counter = 0
+15.times do
+  location = ["Cavendish Conference Centre", "Royal Academy of Arts" , "Sir John Soane's Museum", "Camden Arts Centre", "The Bridewell Theatre", "Tate Modern", "Parasol Unit, Islington", "Hayward Gallery", "Institute of Contemporary Arts", "National Gallery", "National Portrait Gallery", "Serpentine Gallery", "Tate Britain", "Wallace Collection", "Whitechapel Gallery"]
+  event = Event.new(
+    name: Faker::Name.first_name + " " +  Faker::Name.last_name,
+    fee: rand(5..20),
+    location: location[counter],
+    date: "#{rand(6..12)}Dec"
+  )
+  counter += 1
+  event.save!
+end
+
+puts 'Finished!'
