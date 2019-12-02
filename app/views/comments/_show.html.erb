@@ -1,7 +1,13 @@
-<div>
-  <%= comment.content %></br>
-  <i><%="- #{comment.user.first_name} #{comment.user.last_name}"%></i>
+<div class="comment-box d-flex">
+  <%= render 'shared/avatar', artist: comment.user %>
+  <div class="d-flex" style="margin-left: 10px;">
+    <i><strong><%="#{comment.user.first_name} #{comment.user.last_name}"%></strong></i>
+    <div style="margin-left: 10px;">
+      <p><%= comment.content %></p>
+    </div>
+  </div>
 </div>
 <br>
+
 
 
