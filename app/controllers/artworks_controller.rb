@@ -15,6 +15,9 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.where("user_id = ?", @artwork.user.id)
     @comments = @artwork.comments
     @comment = Comment.new
+    if current_user.id == @artwork.user_id
+      make_read
+    end
   end
 
   def new
@@ -39,6 +42,13 @@ class ArtworksController < ApplicationController
   end
 
   private
+
+  def make_read
+    @comments.each do |comment|
+      comment.read = true
+      comment.save
+    end
+  end
 
   def find_artwork
     @artwork = Artwork.find(params[:id])
