@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Orders</h1>
+  <hr>
   <% @orders.each do |order| %>
     <%= render partial: 'shared/orders', locals: { order: order } %>
   <% end %>
