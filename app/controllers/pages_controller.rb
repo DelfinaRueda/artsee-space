@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home artists artist]
+  skip_before_action :authenticate_user!, only: %i[home artists artist_home artist_about artist_events]
 
   def home
     @users = User.all
@@ -14,7 +14,17 @@ class PagesController < ApplicationController
     end
   end
 
-  def artist
+  def artist_home
+    @artist = User.find(params[:id])
+    @artworks = Artwork.where(user_id: params[:id])
+  end
+
+  def artist_about
+    @artist = User.find(params[:id])
+    @artworks = Artwork.where(user_id: params[:id])
+  end
+
+  def artist_events
     @artist = User.find(params[:id])
     @artworks = Artwork.where(user_id: params[:id])
   end

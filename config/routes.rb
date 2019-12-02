@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
   get '/artists/', to: 'pages#artists'
-  get '/artists/:id', to: 'pages#artist', as: :artist
+  get '/artists/:id', to: 'pages#artist_home', as: :artist
+  get '/artists/:id/about', to: 'pages#artist_about', as: :artist_about
   resources :artworks do
     resources :comments, only: [:create]
   end

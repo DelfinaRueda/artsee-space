@@ -18,8 +18,9 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
+$border-radius:    5px;
+$border-radius-lg: 15px;
+$border-radius-xl: 25px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
@@ -269,8 +270,8 @@ $border-radius-sm: 2px;
 // $rounded-pill:                50rem !default;
 //
 // $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
-// $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
-// $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+$box-shadow:                  0 .1rem .25rem rgba(#000, .25) ;
+$box-shadow-lg:               0 .15rem .35rem rgba(#000, .25) ;
 //
 // $component-active-color:      $white !default;
 // $component-active-bg:         theme-color("primary") !default;

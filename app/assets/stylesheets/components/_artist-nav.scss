@@ -1,0 +1,27 @@
+.artist-nav {
+  text-align: center;
+  margin: 32px 0 40px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  .artist-nav-item {
+    padding: 15px 45px;
+    background-color: $light-gray;
+    margin: 0;
+    box-shadow: $box-shadow-lg;
+    text-decoration: none;
+    z-index: 0;
+    transition: transform 0.4s ease-out;
+    &:last-child { border-radius: 0 $border-radius-xl $border-radius-xl 0; }
+    &:first-child { border-radius: $border-radius-xl 0 0 $border-radius-xl; }
+    &:hover {
+      background-color: mix(#fff, $light-gray, 40%);
+    }
+    &.active {
+      z-index: 1;
+      background-color: #fff;
+
+    }
+
+  }
+}

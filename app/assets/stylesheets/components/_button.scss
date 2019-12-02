@@ -1,0 +1,26 @@
+.btn-primary {
+  background: transparent;
+  border: 3px solid $primary;
+  font-weight: 500;
+  color: $primary !important;
+  padding: 8px 40px;
+  margin: 0 8px;
+  box-sizing: border-box;
+  transition: color 0.1s, transform 0.25s;
+  outline: 0 !important;
+  box-shadow: none !important;
+  margin: 4px 0;
+  &:hover, &:active {
+    background: transparent !important;
+    transition: border-color 0.1s, color 0.1s, transform 0.15s;
+    transform: scale(1.03);
+    color: mix($primary, #000, 85%) !important;
+    border: 3px solid mix($primary, #000, 85%);
+
+  }
+  &:active {
+    transform: scale(1.035);
+    outline: 0 !important;
+
+  }
+}
