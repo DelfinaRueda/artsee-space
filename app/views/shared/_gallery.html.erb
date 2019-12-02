@@ -7,8 +7,6 @@
         <% if params[:id] == nil%>
           <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
         <% end %>
-        <div class="artwork-card">
-          <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
           <a class="overlay" href="<%= artwork_path(artwork) %>">
             <h4><%= artwork.title %></h4>
             <% if params[:id] == nil%>
@@ -22,6 +20,5 @@
             <% end %>
           </a>
         </div>
-      </div>
     <% end %>
 </div>
