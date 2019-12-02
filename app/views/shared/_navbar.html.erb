@@ -11,7 +11,7 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" style="position: relative;">
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Home", "/", class: "nav-link" %>
@@ -29,7 +29,7 @@
           <% end %>
         <% end %>
         <% unless @unread_comments.count == 0 %>
-        <li><%= @unread_comments.count %> <i class="fas fa-envelope"></i></li>
+        <li class="nav-notification-icon"><strong><%= @unread_comments.count %></strong></li>
         <% end %>
         <li class="nav-item dropdown">
           <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= render partial: 'shared/avatar', locals: { artist: current_user } %></a>
