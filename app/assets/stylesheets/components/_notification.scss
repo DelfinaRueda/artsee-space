@@ -1,0 +1,28 @@
+.nav-notification-icon {
+  padding-top: 2px;
+  text-align: center;
+  font-size: 8px;
+  color: white;
+  height: 16px;
+  width: 16px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  right: 16px;
+  top: -8px;
+}
+
+.gallery-notification-icon {
+  padding-top: 3px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  height: 24px;
+  width: 24px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  right: 40px;
+  top: 32px;
+  z-index: 1;
+}

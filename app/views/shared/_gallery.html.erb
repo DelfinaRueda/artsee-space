@@ -1,4 +1,4 @@
-<div class="artwork-cards">
+<div class="artwork-cards" style="position: relative;">
   <% artworks.each do |artwork| %>
   <% if current_user.id == artwork.user_id  %>
       <% @unread_comments = artwork.comments.where(read: false).map do |comment|%>
@@ -6,7 +6,7 @@
     <% end %>
     <% if @unread_comments != 0 %>
     <% unless @unread_comments.count == 0 %>
-      <p><%= @unread_comments.count %> <i class="fas fa-envelope"></i></p>
+      <p class="gallery-notification-icon"><%= @unread_comments.count %></p>
     <% end %>
     <% end %>
   <% end %>
