@@ -21,7 +21,14 @@
         </li>
         <li class="nav-item">
           <%= link_to "Artists", artists_path, class: "nav-link" %>
-        </li>
+        </li class="nav-notification">
+        <% @unread_comments = [] %>
+        <% current_user.artworks.select do |artwork|%>
+          <% artwork.comments.where(read: false).each do |comment|%>
+            <% @unread_comments << comment.content %>
+          <% end %>
+        <% end %>
+        <li><%= @unread_comments.count unless @unread_comments.count == 0 %></li>
         <li class="nav-item dropdown">
           <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= render partial: 'shared/avatar', locals: { artist: current_user } %></a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
