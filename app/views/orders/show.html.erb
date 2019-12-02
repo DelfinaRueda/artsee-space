@@ -1,1 +1,6 @@
-<%= render partial: 'shared/orders', locals: { order: @order } %>
+<div class="container">
+  <h1 style="text-align: center;">Thank your for purchasing from ArtSee!</h1>
+  <h3 style="margin-top: 32px;">Order Summary</h3>
+  <hr>
+  <%= render partial: 'shared/orders', locals: { order: @order } %>
+</div>

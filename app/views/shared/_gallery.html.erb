@@ -1,6 +1,6 @@
 <div class="artwork-cards">
   <% artworks.each do |artwork| %>
-    <div class="artwork-card">
+    <div class="artwork-card" style="position: relative;">
       <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
       <a class="overlay" href="<%= artwork_path(artwork) %>">
         <h4><%= artwork.title %></h4>
