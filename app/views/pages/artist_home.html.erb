@@ -1,0 +1,24 @@
+<div class="page-container">
+  <%= render partial: 'shared/artist_header', locals: { artist: @artist } %>
+
+
+
+  <div class="profile-container">
+
+
+    <!-- To partal -->
+    <div class="gallery">
+      <div class="gallery-profile">
+        <h3><%= @artist.first_name %>'s Gallery</h3>
+        <% if current_user != nil && params[:id].to_i == current_user.id%>
+          <%= link_to new_artwork_path do %>
+            <button class="btn btn-primary">Add a new artwork</button>
+          <% end %>
+        <% end %>
+        <%= render partial: 'shared/gallery', locals: { artworks: @artworks } %>
+      </div>
+    </div>
+
+
+  </div>
+</div>
