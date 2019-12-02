@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_12_02_104908) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +62,19 @@ ActiveRecord::Schema.define(version: 2019_12_02_104908) do
     t.boolean "read", default: false
     t.index ["artwork_id"], name: "index_comments_on_artwork_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.text "description"
+    t.string "category"
+    t.integer "fee"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "galleries", force: :cascade do |t|

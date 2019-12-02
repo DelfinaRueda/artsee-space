@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Orders</h1>
-  <% @orders.each do |order| %>
   <hr>
+  <% @orders.each do |order| %>
     <%= render partial: 'shared/orders', locals: { order: order } %>
   <% end %>
 </div>
