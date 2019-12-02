@@ -1,16 +1,6 @@
-<div class="artwork-cards" style="position: relative;">
+<div class="artwork-cards">
   <% artworks.each do |artwork| %>
-  <% if current_user.id == artwork.user_id  %>
-      <% @unread_comments = artwork.comments.where(read: false).map do |comment|%>
-      <% comment.content %>
-    <% end %>
-    <% if @unread_comments != 0 %>
-    <% unless @unread_comments.count == 0 %>
-      <p class="gallery-notification-icon"><%= @unread_comments.count %></p>
-    <% end %>
-    <% end %>
-  <% end %>
-    <div class="artwork-card">
+    <div class="artwork-card" style="position: relative;">
       <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
       <a class="overlay" href="<%= artwork_path(artwork) %>">
         <h4><%= artwork.title %></h4>

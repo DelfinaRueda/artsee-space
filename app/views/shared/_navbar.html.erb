@@ -29,7 +29,8 @@
           <% end %>
         <% end %>
         <% unless @unread_comments.count == 0 %>
-        <li class="nav-notification-icon"><strong><%= @unread_comments.count %></strong></li>
+        <li class="nav-notification-icon"><strong><%= @unread_comments.count unless @unread_comments.count == 0 %></strong></li>
+        <% else %>
         <% end %>
         <li class="nav-item dropdown">
           <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= render partial: 'shared/avatar', locals: { artist: current_user } %></a>
