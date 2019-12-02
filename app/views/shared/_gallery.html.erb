@@ -5,7 +5,9 @@
       <% comment.content %>
     <% end %>
     <% if @unread_comments != 0 %>
-      <p><%= @unread_comments.count unless @unread_comments.count == 0%></p>
+    <% unless @unread_comments.count == 0 %>
+      <p><%= @unread_comments.count %> <i class="fas fa-envelope"></i></p>
+    <% end %>
     <% end %>
   <% end %>
     <div class="artwork-card">
