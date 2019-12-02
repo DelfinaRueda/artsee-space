@@ -5,24 +5,22 @@
       <a class="overlay" href="<%= artwork_path(artwork) %>">
         <h4><%= artwork.title %></h4>
         <% if params[:id] == nil%>
-        <p><%= artwork.user.first_name %>
-          <%=artwork.user.last_name %></p>
+          <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
         <% end %>
+        <div class="artwork-card">
+          <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
+          <a class="overlay" href="<%= artwork_path(artwork) %>">
+            <h4><%= artwork.title %></h4>
+            <% if params[:id] == nil%>
+              <p><%= artwork.user.first_name %>
+                <%=artwork.user.last_name %></p>
+            <% end %>
+            <% if artwork.description.length > 100 %>
+              <p><%= artwork.description.truncate_words(20)%></p>
+            <% else %>
+              <p><%= artwork.description%></p>
+            <% end %>
+          </a>
+        </div>
       <% end %>
-      <div class="artwork-card">
-        <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
-        <a class="overlay" href="<%= artwork_path(artwork) %>">
-          <h4><%= artwork.title %></h4>
-          <% if params[:id] == nil%>
-            <p><%= artwork.user.first_name %>
-              <%=artwork.user.last_name %></p>
-          <% end %>
-          <% if artwork.description.length > 100 %>
-            <p><%= artwork.description.truncate_words(20)%></p>
-          <% else %>
-            <p><%= artwork.description%></p>
-          <% end %>
-        </a>
-      </div>
-    <% end %>
-  </div>
+    </div>
