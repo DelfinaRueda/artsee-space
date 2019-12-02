@@ -22,6 +22,9 @@
         <li class="nav-item">
           <%= link_to "Artists", artists_path, class: "nav-link" %>
         </li class="nav-notification">
+        <li class="nav-item">
+          <%= link_to "Events", events_path, class: "nav-link" %>
+        </li>
         <% @unread_comments = [] %>
         <% current_user.artworks.select do |artwork|%>
           <% artwork.comments.where(read: false).each do |comment|%>
@@ -50,6 +53,9 @@
         </li>
         <li class="nav-item">
           <%= link_to "Artists", artists_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Events", events_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
