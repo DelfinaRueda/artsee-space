@@ -1,11 +1,14 @@
-<%  current_user.id == artwork.user_id  %>
-    <% @unread_comments = artwork.comments.where(read: false).map do |comment|%>
-    <% comment.content %>
+<% if current_user.present? %>
+  <% if current_user.id == artwork.user_id  %>
+      <% @unread_comments = artwork.comments.where(read: false).map do |comment|%>
+      <% comment.content %>
+    <% end %>
+    <% unless @unread_comments.count == 0 %>
+      <p class="gallery-notification-icon"><%= @unread_comments.count %></p>
+    <% else %>
+    <% end %>
   <% end %>
-  <% unless @unread_comments.count == 0 %>
-    <p class="gallery-notification-icon"><%= @unread_comments.count %></p>
-  <% else %>
-  <% end %>
+<% else %>
 <% end %>
 <% if artwork.photo.attached? %>
   <%= cl_image_tag artwork.photo.key, width: '100%', class: "artwork" %>
