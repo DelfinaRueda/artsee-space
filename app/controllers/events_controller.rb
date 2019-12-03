@@ -12,4 +12,15 @@ class EventsController < ApplicationController
       }
     end
   end
+
+  def create_like
+    @like = Link.new
+    @like[:user_id] = current_user.id
+    @like[:event_id] = event.id
+    @like.save
+  end
+
+  def show
+  end
 end
+

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :artworks
   has_many :comments
+  has_many :likes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :galleries

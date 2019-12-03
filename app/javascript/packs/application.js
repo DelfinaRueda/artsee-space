@@ -27,4 +27,15 @@ document.querySelectorAll(".card-event").forEach((card, index) => {
   card.addEventListener("mouseleave", e => {
     markers[index].querySelector("g[fill=\"orange\"]").setAttribute("fill", "#3FB1CE")
   })
-})
+});
+
+const hearts = document.querySelectorAll(".icon-heart a i")
+hearts.forEach((heart, index) => {
+  heart.addEventListener("click", e => {
+    if (hearts[index].className == "far fa-heart")
+     hearts[index].className = "fas fa-heart";
+   else
+     hearts[index].className = "far fa-heart";
+   })
+});
+

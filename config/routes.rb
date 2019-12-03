@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
-  resources :events, only: [:index]
+  resources :events, only: [:index, :create_like, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
