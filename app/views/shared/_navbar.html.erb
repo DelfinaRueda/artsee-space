@@ -36,12 +36,22 @@
         <% else %>
         <% end %>
         <li class="nav-item dropdown">
-          <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= render partial: 'shared/avatar', locals: { artist: current_user } %></a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", artist_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Orders", orders_path, class: "dropdown-item" %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= render partial: 'shared/avatar-small', locals: { artist: current_user } %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" style="opacity: 0;" aria-labelledby="navbarDropdown">
+            <%= link_to artist_path(current_user), class: "dropdown-item" do %>
+            <i class="fas fa-user-circle menu-bg-icon"></i> Profile
+            <% end %>
+            <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
+              <i class="fas fa-edit menu-bg-icon"></i> Edit Profile
+            <% end %>
+            <%= link_to orders_path, class: "dropdown-item" do %>
+              <i class="fas fa-shopping-basket menu-bg-icon"></i> Orders
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+              <i class="fas fa-sign-out-alt menu-bg-icon"></i> Log Out
+            <% end %>
           </div>
         </li>
       <% else %>
