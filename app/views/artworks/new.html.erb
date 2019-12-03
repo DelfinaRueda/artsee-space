@@ -2,15 +2,15 @@
   <div class="row justify-content-center">
     <div class="form col-12 col-lg-6">
       <h1>Add a new artwork</h1>
-
+      <% categories = [ "painting", "anime", "cartoon", "photograph", "drawing", "illustration"] %>
       <%= simple_form_for [@artwork] do |f| %>
 
         <div class="form-inputs">
           <%= f.input :title %>
           <%= f.input :photo, as: :file, label: "Artwork" %>
-          <%= f.input :category %>
+          <%= f.input :category, as: :select, collection: categories, prompt: 'Select Category'  %>
           <%= f.input :description%>
-          <%= f.input :price_cents, label: "Price:" %>
+          <%= f.input :price_cents, label: "Price (£):" %>
         </div>
 
         <div class="form-actions btn btn-primary">

@@ -68,6 +68,18 @@ User.all.each do |user|
   end
 end
 
+puts 'Creating orders...'
+
+10.times do
+  User.all.sample(25).each do |user|
+  order = Order.new(
+    state: "paid",
+    user_id: user.id,
+    artwork_id: Artwork.all.sample.id,
+    )
+  order.save!
+  end
+end
 
 user = User.new(
     first_name: "Vinvan",

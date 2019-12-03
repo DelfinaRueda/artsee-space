@@ -12,4 +12,35 @@ class EventsController < ApplicationController
       }
     end
   end
+
+  def create_like
+    @event = Event.find(params[:id])
+    if @event.likes.where(user: current_user).any?
+      @like = @event.likes.first
+      @like.state = true
+    else
+      @like = Like.new(state: true)
+      @like[:user_id] = current_user.id
+      @like[:event_id] = params[:id]
+    end
+    @like.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def destroy_like
+    @like = Like.find(params[:id])
+    @like.update(state: false)
+    @event = @like.event
+    @like.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def index_likes
+    @artist = User.find(params[:id].to_i)
+    @events = current_user.events.where("state = true")
+  end
 end

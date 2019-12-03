@@ -34,3 +34,13 @@ document.querySelectorAll(".card-event").forEach((card, index) => {
 $(".search-form").on("change", "input:checkbox", function(){
     $("#search-form").submit();
 });
+
+// const hearts = document.querySelectorAll(".icon-heart i")
+// hearts.forEach((heart, index) => {
+//   heart.addEventListener("click", e => {
+//     if (hearts[index].className == "far fa-heart")
+//      hearts[index].className = "fas fa-heart";
+//    else
+//      hearts[index].className = "far fa-heart";
+//    })
+// });

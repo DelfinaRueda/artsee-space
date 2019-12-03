@@ -1,7 +1,10 @@
-<h2 style="margin: 16px 0px 8px 15px">Upcoming Events</h2>
-<div class="container-events">
-  <% counter = 0 %>
-  <div class="event-cards col-7">
+
+<div class="page-container">
+  <%= render partial: 'shared/artist_header', locals: { artist: @artist } %>
+
+  <div class="container">
+    <% counter = 0 %>
+      <div class="event-cards col-7">
     <% @events.each do |event| %>
     <div class="card-event">
       <div class="event-image">
@@ -30,13 +33,7 @@
     </div>
     <% end %>
   </div>
-  <div class="map-container col-5">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 80vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+
+
   </div>
 </div>

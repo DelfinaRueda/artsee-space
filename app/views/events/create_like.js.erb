@@ -1,0 +1,2 @@
+hearts = document.getElementById("heart-<%= @event.id %>")
+hearts.innerHTML = '<%= link_to destroy_like_event_path(@like), method: :delete, remote: true do %><i class=\"fas fa-heart\"></i><% end %>'
