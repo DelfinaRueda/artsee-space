@@ -1,7 +1,10 @@
 .comment-box {
-  border-left: 3px solid #69644A;
+  border-left: 3px solid #667887;
   padding-left: 10px;
-  background-color: rgb(230, 240, 245);
-
+  background-color: #F5F8FA;
+  .user-info {
+    color: #667887;
+    font-size: 14px;
+  }
 }
 

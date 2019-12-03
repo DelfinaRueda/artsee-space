@@ -1,10 +1,21 @@
-<div class="comment-box d-flex">
-  <%= render 'shared/avatar', artist: comment.user %>
-  <div class="d-flex" style="margin-left: 10px;">
-    <i><strong><%="#{comment.user.first_name} #{comment.user.last_name}"%></strong></i>
-    <div style="margin-left: 10px;">
-      <p><%= comment.content %></p>
+<div class="comment-box d-flex" style="border-radius: 3px;">
+  <div style="margin-top: 3px">
+    <%= render 'shared/avatar', artist: comment.user %>
+  </div>
+  <div style="margin-left: 10px;">
+    <div class="d-flex align-items-center" >
+      <p style="font-weight: 600; margin-bottom: 0;"><%="#{comment.user.first_name} #{comment.user.last_name}"%></p>
+      <div class="d-flex align-items-center user-info" style="margin-left: 10px;">
+        <p style="margin-bottom: 0"><%=comment.user.email%></p>
+      </div>
+      <div class="d-flex align-items-center user-info" style="margin-left: 10px;">
+        <p style="margin-bottom: 0"><%="•"%></p>
+      </div>
+      <div class="d-flex align-items-center user-info" style="margin-left: 10px;">
+        <p style="margin-bottom: 0"><%="#{time_ago_in_words(comment.created_at)} ago"%></p>
+      </div>
     </div>
+   <p style="font-weight: 500; margin-bottom: 14px;"><%= comment.content %></p>
   </div>
 </div>
 <br>
