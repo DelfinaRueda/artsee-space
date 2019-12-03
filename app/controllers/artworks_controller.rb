@@ -17,6 +17,7 @@ class ArtworksController < ApplicationController
   def show
     find_artwork
     @artworks = Artwork.where("user_id = ?", @artwork.user.id)
+    @orders = Order.all
     @comments = @artwork.comments
     @comment = Comment.new
     if current_user.present?
