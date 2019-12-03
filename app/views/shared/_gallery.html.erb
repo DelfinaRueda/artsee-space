@@ -4,7 +4,8 @@
       <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
       <a class="overlay" href="<%= artwork_path(artwork) %>">
         <% if params[:id] == nil%>
-          <p><%= artwork.user.first_name %>
+          <p><%= artwork.category %>
+            <%= artwork.user.first_name %>
             <%=artwork.user.last_name %></p>
         <% end %>
         <% if artwork.description.length > 100 %>

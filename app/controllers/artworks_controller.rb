@@ -4,11 +4,11 @@ class ArtworksController < ApplicationController
   def index
     if params[:query].present? && params[:category].present?
       @artworks = Artwork.global_search(params[:query])
-      @artworks = @artworks.where("category = ?", params[:category])
+      @artworks = @artworks.where(category: params[:category])
     elsif params[:query].present? && params[:category].blank?
       @artworks = Artwork.global_search(params[:query])
     elsif params[:query].blank? && params[:category].present?
-      @artworks = Artwork.where("category = ?", params[:category])
+      @artworks = Artwork.where(category: params[:category])
     else
       @artworks = Artwork.all
     end
@@ -20,10 +20,7 @@ class ArtworksController < ApplicationController
     @comments = @artwork.comments
     @comment = Comment.new
     if current_user.present?
-      if current_user.id == @artwork.user_id
-        make_read
-      end
-    else
+      make_read if current_user.id == @artwork.user_id
     end
   end
 

@@ -28,3 +28,9 @@ document.querySelectorAll(".card-event").forEach((card, index) => {
     markers[index].querySelector("g[fill=\"orange\"]").setAttribute("fill", "#3FB1CE")
   })
 })
+
+
+// Submit form when clicking the checkbox
+$(".search-form").on("change", "input:checkbox", function(){
+    $("#search-form").submit();
+});
