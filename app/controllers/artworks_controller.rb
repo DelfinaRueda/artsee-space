@@ -2,9 +2,13 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:query].present?
+    if params[:query].present? && params[:category].present?
       @artworks = Artwork.global_search(params[:query])
-
+      @artworks = @artworks.where("category = ?", params[:category])
+    elsif params[:query].present? && params[:category].blank?
+      @artworks = Artwork.global_search(params[:query])
+    elsif params[:query].blank? && params[:category].present?
+      @artworks = Artwork.where("category = ?", params[:category])
     else
       @artworks = Artwork.all
     end
