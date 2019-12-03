@@ -15,8 +15,11 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.where("user_id = ?", @artwork.user.id)
     @comments = @artwork.comments
     @comment = Comment.new
-    if current_user.id == @artwork.user_id
-      make_read
+    if current_user.present?
+      if current_user.id == @artwork.user_id
+        make_read
+      end
+    else
     end
   end
 
