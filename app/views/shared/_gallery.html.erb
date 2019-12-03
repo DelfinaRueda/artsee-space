@@ -3,7 +3,6 @@
     <div class="artwork-card" style="position: relative;">
       <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
       <a class="overlay" href="<%= artwork_path(artwork) %>">
-        <h4><%= artwork.title %></h4>
         <% if params[:id] == nil%>
           <p><%= artwork.user.first_name %> <%=artwork.user.last_name %></p>
         <% end %>
