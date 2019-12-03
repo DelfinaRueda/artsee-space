@@ -1,11 +1,17 @@
-<%= form_tag form_path, method: :get do %>
-<div class="search-form">
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control invisible-input",
-    placeholder: placeholder
-  %>
-  <%= render partial: 'shared/checkbox-filter' %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+<%= form_tag form_path, method: :get, class: "searching-form" do %>
+<%= render partial: "shared/checkbox-card", locals: {name: "painting"} %>
+<%= render partial: "shared/checkbox-card", locals: {name: "photograph"} %>
+<%= render partial: "shared/checkbox-card", locals: {name: "drawing"} %>
+<%= render partial: "shared/checkbox-card", locals: {name: "illustration"} %>
+<%= render partial: "shared/checkbox-card", locals: {name: "cartoon"} %>
+<%= render partial: "shared/checkbox-card", locals: {name: "anime"} %>
+
+  <div class="search-box">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control invisible-input",
+      placeholder: placeholder
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  </div>
 <% end %>
-</div>

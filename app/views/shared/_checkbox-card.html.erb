@@ -1,0 +1,11 @@
+<div class="checkbox-card">
+
+  <input id="<%= name %>" name="category[]" type="checkbox" class="checkbox-category" value="<%= name %>"
+  <% unless params['category'].nil? %>
+    <% if params['category'].include?( name) %>
+      checked
+    <%end%>
+  <%end%>
+  />
+  <label for="<%= name %>"><%= name.titlecase %></label>
+</div>
