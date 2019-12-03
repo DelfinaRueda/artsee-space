@@ -29,13 +29,13 @@ document.querySelectorAll(".card-event").forEach((card, index) => {
   })
 });
 
-const hearts = document.querySelectorAll(".icon-heart a i")
-hearts.forEach((heart, index) => {
-  heart.addEventListener("click", e => {
-    if (hearts[index].className == "far fa-heart")
-     hearts[index].className = "fas fa-heart";
-   else
-     hearts[index].className = "far fa-heart";
-   })
-});
+// const hearts = document.querySelectorAll(".icon-heart i")
+// hearts.forEach((heart, index) => {
+//   heart.addEventListener("click", e => {
+//     if (hearts[index].className == "far fa-heart")
+//      hearts[index].className = "fas fa-heart";
+//    else
+//      hearts[index].className = "far fa-heart";
+//    })
+// });
 
