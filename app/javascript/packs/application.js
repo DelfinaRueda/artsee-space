@@ -18,3 +18,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
+
+const markers = document.querySelectorAll(".mapboxgl-marker")
+document.querySelectorAll(".card-event").forEach((card, index) => {
+  card.addEventListener("mouseenter", e => {
+    markers[index].querySelector("g[fill=\"#3FB1CE\"]").setAttribute("fill", "orange")
+  })
+  card.addEventListener("mouseleave", e => {
+    markers[index].querySelector("g[fill=\"orange\"]").setAttribute("fill", "#3FB1CE")
+  })
+})
