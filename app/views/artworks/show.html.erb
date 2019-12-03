@@ -2,6 +2,7 @@
   <div class="container-top">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
+             <p><%=@artwork.dimensions %>cm</p>
     </div>
     <div class="artist-info">
       <div class="info-top">
@@ -10,12 +11,7 @@
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-        <p><%= @artwork.user.description %></p>
-        <p>
-          <strong>Dimensions:
-          </strong><%= @artwork.dimensions %>
-          cm</p>
-        <p>
+        <p><%= @artwork.user.description.truncate_words(120) %></p>
           <strong>Category:</strong>
           <%= @artwork.category %></p>
         <p><strong>Number<%= p "s" if @orders.where(artwork_id: @artwork.id).count > 1 %> sold:</strong> <%= @orders.where(artwork_id: @artwork.id).count %></p>
