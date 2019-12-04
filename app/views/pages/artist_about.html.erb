@@ -7,11 +7,7 @@
         <%= render partial: 'shared/avatar-profile', locals: { artist: @artist } %>
       </div>
       <div class="col">
-        <% if @artist.description.present? %>
-        <p><%= @artist.description %></p>
-        <% else %>
         <p class="h2">Hi my name is <%= @artist.first_name %> <%= @artist.last_name %>. Please check out my gallery!</p>
-        <% end %>
         <br>
           <a href="mailto:<%= @artist.email %>" class="btn btn-primary"><i class="fas fa-envelope"></i> <%= @artist.email %></a><br>
           <a href="tel:<%= @artist.phone_number %>" class="btn btn-primary"><i class="fas fa-phone"></i> <%= @artist.phone_number %></a><br>
@@ -22,6 +18,10 @@
           <a href="<%= @artist.pinterest %>" class="social-icon"><i class="fab fa-pinterest"></i> Pinterest</a>
           <a href="<%= @artist.twitter %>" class="social-icon"><i class="fab fa-twitter"></i> Twitter</a>
         </div>
+      </div>
+      <div class="artist-info">
+        <h3>About me</h3>
+        <p><%= @artist.description %></p>
       </div>
     </div>
   </div>
