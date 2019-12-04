@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2019_12_04_123156) do
     t.datetime "updated_at", null: false
     t.string "artwork_pic"
     t.string "title"
-    t.integer "price_cents", default: 0, null: false
     t.text "dimensions"
+    t.integer "price_cents", default: 0, null: false
     t.integer "sales", default: 0
     t.integer "views", default: 0
     t.index ["gallery_id"], name: "index_artworks_on_gallery_id"

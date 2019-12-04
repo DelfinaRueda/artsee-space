@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index]
+  skip_before_action :authenticate_user!, only: %i[index index_likes]
 
   def index
     @events = Event.geocoded
@@ -41,6 +41,6 @@ class EventsController < ApplicationController
 
   def index_likes
     @artist = User.find(params[:id].to_i)
-    @events = current_user.events.where("state = true")
+    @events = @artist.events.where("state = true")
   end
 end

@@ -1,7 +1,7 @@
 <div class="artwork-container">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
-             <p><%=@artwork.dimensions %>cm</p>
+      <p class="text-bottom"><%=@artwork.dimensions %>cm</p>
     </div>
     <div class="artist-info page-container container">
       <div class="info-top">
@@ -10,8 +10,9 @@
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-        <p><%= @artwork.user.description.truncate_words(120) %></p>
-        <p><strong>Category:</strong> <%= @artwork.category %></p>
+        <p><%= @artwork.user.description.truncate_words(120) %>
+           <p>
+          <%= @artwork.category %></p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
         <p><i class="far fa-eye"></i> <%= @artwork.views %></p>
         <div class="footer-links">
@@ -39,7 +40,7 @@
     </div>
   </div>
 </div>
-<div class="page-container container">
+<div class="page-container container" style="margin-top: -40px">
     <h4>
       Description
     </h4>

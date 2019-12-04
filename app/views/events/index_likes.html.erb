@@ -1,12 +1,11 @@
-
 <div class="page-container">
   <%= render partial: 'shared/artist_header', locals: { artist: @artist } %>
 
   <div class="container">
     <% counter = 0 %>
-      <div class="event-cards col-7">
+      <div class="event-cards">
     <% @events.each do |event| %>
-    <div class="card-event">
+    <a href="http://eventbrite.co.uk/"><div class="card-event">
       <div class="event-image">
         <img src="https://source.unsplash.com/random?sig=<%= counter %>" />
       </div>
@@ -27,6 +26,7 @@
             <%= link_to create_like_event_path(event), method: :post, remote: true do %>
               <i class="far fa-heart"></i>
             <% end %>
+            </a>
           <% end %>
         </div>
       </div>
