@@ -15,7 +15,7 @@
     display: flex;
 
     .artist-info {
-      flex-basis: 450px;
+      flex-basis: 440px;
     }
     .image-container {
       flex: 1 1;
@@ -52,6 +52,7 @@
     width: 400px;
     height: 555px;
 
+
     a {
       text-decoration: none;
       color:black;
@@ -68,14 +69,6 @@
       font-size: 15px;
     }
 
-    .footer-links{
-      font-size: 32px;
-    }
-  }
-
-  .artist-info .info-bottom {
-    display: flex;
-    justify-content: space-between;
   }
 
   .btn-success {
@@ -144,4 +137,21 @@
 @keyframes fadein {
 from { opacity: 0; }
 to   { opacity: 1; }
+}
+
+.artist-info {
+  position:relative;
+
+ .info-bottom{
+  display:flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom:10px;
+  align-items: center;
+
+  .btn {
+    margin-left: 120px;
+    margin-bottom: 15px;
+  }
+  }
 }
