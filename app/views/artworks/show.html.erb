@@ -1,17 +1,16 @@
-<div class="page-container">
-  <div class="container-top">
+<div class="artwork-container">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
              <p><%=@artwork.dimensions %>cm</p>
     </div>
-    <div class="artist-info">
+    <div class="artist-info page-container container">
       <div class="info-top">
         <h3><%= @artwork.title %></h3>
         <a href="<%=artist_path(@artwork.user)%>">
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-        <p><%= @artwork.user.description.truncate_words(120) %></p>
+        <p><%= @artwork.user.description.truncate_words(120) %>
           <strong>Category:</strong>
           <%= @artwork.category %></p>
         <p><strong>Number<%= p "s" if @orders.where(artwork_id: @artwork.id).count > 1 %> sold:</strong> <%= @orders.where(artwork_id: @artwork.id).count %></p>
@@ -40,14 +39,12 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="container-bottom">
+<div class="page-container container">
     <h4>
       Description
     </h4>
     <p><%= @artwork.description%></p>
     <hr>
-  </div>
   <br>
   <div id="comments">
     <h4><%= pluralize @artwork.comments.size, "comment" %></h4>
