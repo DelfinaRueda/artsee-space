@@ -1,4 +1,32 @@
 .footer-background {
-  background-color: black;
+  display: flex;
+  justify-content: center;
+  background-color: #333333;
   color: white;
+  height: 220px;
+}
+
+.footer-icons{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-icon {
+  text-align: center;
+  margin: 10px;
+  color: white;
+  font-size: 40px;
+  :hover {
+    color: black;
+  }
+}
+
+.useless-info {
+  display: flex;
+  justify-content: center;
+  .info-button {
+    :hover {
+      color: white;
+    }
+  }
 }
