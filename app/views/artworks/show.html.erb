@@ -10,9 +10,8 @@
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-        <p><%= @artwork.user.description.truncate_words(120) %>
-          <strong>Category:</strong>
-          <%= @artwork.category %></p>
+        <p><%= @artwork.user.description.truncate_words(120) %></p>
+        <p><strong>Category:</strong> <%= @artwork.category %></p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
         <p><i class="far fa-eye"></i> <%= @artwork.views %></p>
         <div class="footer-links">
