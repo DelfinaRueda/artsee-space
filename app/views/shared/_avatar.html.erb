@@ -1,7 +1,7 @@
 <% if artist.photo.attached? %>
-  <%= cl_image_tag artist.photo.key, crop: :fill, class: "avatar" %>
+  <%= cl_image_tag(artist.profile_pic, :width => 400, :crop => :fill) %>
 <% else %>
-  <%= cl_image_tag artist.profile_pic, :width=>300, :crop=>"scale", class: "avatar" %>
+  <%= cl_image_tag(artist.profile_pic, :width => 400, :crop => :fill) %>
 
-  <%# <img class="avatar" src="<>% = artist.profile_pic %<> ?w=500&fit=max"> %>
+
 <% end %>

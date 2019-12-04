@@ -44,7 +44,7 @@ results['resources'].each {|resource| profile_pics << resource['public_id']}
     password: "123456789",
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
-    profile_pic: "https://res.cloudinary.com/dq9z2qe4i/image/upload/v1575468771/" + profile_pics.sample + ".jpg",
+    profile_pic: profile_pics.sample,
     description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
   )
   user.save!
