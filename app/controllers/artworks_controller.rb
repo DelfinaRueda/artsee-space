@@ -23,7 +23,7 @@ class ArtworksController < ApplicationController
     if current_user.present?
       make_read if current_user.id == @artwork.user_id
     end
-    if current_user != @artwork.user_id
+    if current_user.id != @artwork.user.id
       @artwork[:views] += 1
       @artwork.save
     else
