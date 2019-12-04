@@ -1,5 +1,8 @@
 require 'faker'
 
+require 'net/http'
+require 'uri'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -7,6 +10,8 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Destroy old data...'
 Order.destroy_all
 Artwork.destroy_all
 Gallery.destroy_all
@@ -26,6 +31,10 @@ user = User.new(
 )
 user.save!
 
+profile_pics = []
+results = Cloudinary::Api.resources(type:"upload",prefix:"profile-images/")
+results['resources'].each {|resource| profile_pics << resource['public_id']}
+
 
 50.times do
   user = User.new(
@@ -35,7 +44,7 @@ user.save!
     password: "123456789",
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
-    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+    profile_pic: "https://res.cloudinary.com/dq9z2qe4i/image/upload/v1575468771/" + profile_pics.sample + ".jpg",
     description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
   )
   user.save!
@@ -53,7 +62,10 @@ end
 puts 'Creating artworks...'
 
 User.all.each do |user|
+  puts "- Add 5-15 Artworks to user"
   rand(5..15).times do
+
+    res = Net::HTTP.get_response(URI(["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample))
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
       category: ["painting", "photograph", "drawing", "illustration", "cartoon", "anime"].sample,
@@ -61,7 +73,7 @@ User.all.each do |user|
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
-      artwork_pic: ["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample,
+      artwork_pic: res['location'].sub(/\?.*/, ""),
       price_cents: rand(100..1000),
       views: rand(1..1999)
     )

@@ -2,6 +2,6 @@
   <% if artist.photo.attached? %>
     <%= cl_image_tag artist.photo.key, crop: :fill, class: "avatar-profile" %>
   <% else %>
-    <img class="avatar-profile" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
+    <img class="avatar-profile" src="<%= artist.profile_pic %>?w=500&fit=max">
   <% end %>
 </div>
