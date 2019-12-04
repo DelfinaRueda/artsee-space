@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   background-color: #333333;
-  color: white;
+  color: rgb(183, 180, 165);
   height: 220px;
 }
 
@@ -14,19 +14,21 @@
 .footer-icon {
   text-align: center;
   margin: 10px;
-  color: white;
   font-size: 40px;
+  color: rgb(183, 180, 165) !important;
   :hover {
-    color: black;
+    color: rgb(240, 240, 240);
   }
 }
 
 .useless-info {
   display: flex;
   justify-content: center;
-  .info-button {
+  .info-link {
+    margin: 4px;
+    color: rgb(183, 180, 165);
     :hover {
-      color: white;
+      color: rgb(240, 240, 240);
     }
   }
 }
