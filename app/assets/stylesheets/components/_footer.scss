@@ -1,0 +1,34 @@
+.footer-background {
+  display: flex;
+  justify-content: center;
+  background-color: #333333;
+  color: rgb(183, 180, 165);
+  height: 220px;
+}
+
+.footer-icons{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-icon {
+  text-align: center;
+  margin: 10px;
+  font-size: 40px;
+  color: rgb(183, 180, 165) !important;
+  :hover {
+    color: rgb(240, 240, 240);
+  }
+}
+
+.useless-info {
+  display: flex;
+  justify-content: center;
+  .info-link {
+    margin: 4px;
+    color: rgb(183, 180, 165);
+    :hover {
+      color: rgb(240, 240, 240);
+    }
+  }
+}
