@@ -51,13 +51,13 @@
   box-shadow: none !important;
   margin: 4px 0;
   border-radius: 18px !important;
-  border: 2px solid #bbb;
+  border: 2px solid  mix($primary, #fff, 30%);
   background: #fff;
   &:hover, &:active {
     transition: border-color 0.1s, color 0.1s, transform 0.15s;
     transform: scale(1.03);
     color: mix($primary, #000, 85%) !important;
-    border: 2px solid mix($primary, #bbb, 85%);
+    border: 2px solid mix($primary, #fff, 80%);
     background: #fff;
   }
   &:active {
@@ -66,8 +66,22 @@
     background-color: #eee;
   }
 }
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:btn-white):not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   background-color: #fff;
   border: 2px solid mix($primary, #000, 80%);
+}
+
+
+.btn-white {
+  @extend .btn-primary;
+  background-color: transparent;
+  border-color: mix($primary, #fff, 40%);
+  color: mix($primary, #fff, 10%) !important;
+  &:hover, &:active {
+    border-color: #fff;
+    color: #fff !important;
+    background-color: transparent;
+  }
+
 }
