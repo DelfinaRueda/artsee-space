@@ -1,15 +1,7 @@
 .container-events {
   display:flex;
-
-  #map {
-    position: sticky;
-    top: 10px;
-  }
 }
 
-.map-container {
-  padding: 0px;
-}
 
 .event-cards {
 
@@ -76,4 +68,3 @@
       object-fit: cover;
   }
 }
-

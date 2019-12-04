@@ -11,6 +11,24 @@
   }
 
 }
+.artwork-container{
+    display: flex;
+    .artist-info {
+      flex-basis: 400px;
+    }
+    .image-container {
+      flex: 1 1;
+      background-color: $light-gray;
+      $image-container-padding: 40px;
+      padding: $image-container-padding;
+      box-sizing: border-box;
+      img {
+        width: 100%;
+        max-height: calc(100vh - 60px - #{$image-container-padding} * 2);
+        object-fit: contain;
+      }
+    }
+}
 
 .container-top {
   display: flex;
@@ -43,9 +61,7 @@
       }
     }
 
-    h3 {
-      text-align: center;
-    }
+
 
     & p {
       color: grey;
@@ -95,6 +111,8 @@
     @extend .card;
     display: inline-block !important;
     margin-bottom: 26px;
+    opacity: 0;
+    animation: fadein .5s .2s ease-out forwards;
 
     .overlay {
       flex-direction: column;
@@ -112,6 +130,7 @@
       text-decoration: none;
       background-color: rgba(255,255,255,0.85)
     }
+
     &:hover .overlay { display: flex; }
 
     img {
@@ -121,4 +140,8 @@
       padding: 0 !important;
     }
   }
+}
+@keyframes fadein {
+from { opacity: 0; }
+to   { opacity: 1; }
 }

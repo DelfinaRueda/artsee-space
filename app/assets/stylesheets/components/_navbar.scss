@@ -6,6 +6,7 @@ $menu-height: 60px;
   border-bottom: 2px solid $light-gray;
   padding: 0 0 0 20px;
   z-index: 100;
+  height: 60px;
 }
 
 .navbar .navbar-collapse {
@@ -21,19 +22,19 @@ $menu-height: 60px;
   align-items: center;
   &.dropdown {
     cursor: pointer;
-    transition: background-color .15s ease-out;
+    // transition: background-color .15s ease-out;
     .avatar { opacity: 0.95; }
     &:hover {
       .avatar { opacity: 1; }
-      transition: background-color .1s ease-in;
-
-      background: mix($light-gray, #999, 90%);
+      // transition: background-color .1s ease-in;
+      //
+      // background: mix($light-gray, #999, 90%);
     }
     border-left: 1px solid #fff;
   }
   .nav-link {
     margin-right: 16px;
-    height: 100%;
+    height: 60px;
     display: flex;
     align-items: center;
     padding: 0 25px !important;
@@ -60,7 +61,7 @@ $menu-height: 60px;
   .avatar, .avatar img{
     width: $menu-height !important;
     height: $menu-height !important;
-    border-radius: 0 0 0 35px;
+    border-radius: 0 0 0 22px;
   }
 }
 
@@ -120,8 +121,8 @@ $menu-height: 60px;
 
 .dropdown-toggle::after {
     position: absolute;
-    right: 50px;
-    top: 53px;
+    right: 53px;
+    top: 55px;
     border-top: 0.22em solid;
     border-right: 0.22em solid transparent;
     border-bottom: 0;

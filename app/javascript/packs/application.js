@@ -31,8 +31,8 @@ document.querySelectorAll(".card-event").forEach((card, index) => {
 
 
 // Submit form when clicking the checkbox
-$(".search-form").on("change", "input:checkbox", function(){
-    $("#search-form").submit();
+$(".searching-form").on("change", "input:checkbox", function(){
+    $(".searching-form").submit();
 });
 
 // const hearts = document.querySelectorAll(".icon-heart i")

@@ -15,8 +15,9 @@
 
 .home-banner-item {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
   position: relative;
+  background-color: $light-gray;
   img {
     height: 100%;
     position: absolute;
@@ -25,6 +26,7 @@
     right: 0;
     top: 0;
     bottom: 0;
+    mix-blend-mode: multiply;
   }
   .overlay {
     display: flex;
@@ -41,6 +43,8 @@
     h1 {
       text-align: center;
       width: 100%;
+      font-weight: 400;
+      letter-spacing: 1px;
     }
   }
 }
@@ -55,7 +59,7 @@
     justify-content: center;
     align-items: center;
     width: 50vw;
-    height: 25vh;
+    height: 20vh;
     border: 1px solid rgba(80, 80, 80, 0.2);
   }
 }
