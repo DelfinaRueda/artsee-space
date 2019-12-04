@@ -8,7 +8,7 @@
     position: center;
   }
 }
-.cards {
+.artwork-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
@@ -23,7 +23,7 @@
     height: 100%;
   }
 
-    .card-top {
+    .artwork-card {
       position: relative;
 
         &:hover .overlay{
@@ -45,8 +45,9 @@
         align-items: center;
         padding-left: 10%;
         padding-right: 10%;
-        // text-align: center;
+        text-align: left;
         color: rgba(0,0,0,0);
+        h3 { text-align: left; width: 100%;}
       }
 
       img {
