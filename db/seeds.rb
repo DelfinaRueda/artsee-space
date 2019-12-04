@@ -63,6 +63,7 @@ User.all.each do |user|
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
       artwork_pic: ["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample,
       price_cents: rand(100..1000),
+      views: rand(1..1999)
     )
     artwork.save!
   end
