@@ -3,7 +3,7 @@
   <% counter = 0 %>
   <div class="event-cards col-7">
     <% @events.each do |event| %>
-    <div class="card-event">
+    <a href="http://eventbrite.co.uk/"><div class="card-event">
       <div class="event-image">
         <img src="https://source.unsplash.com/random?sig=<%= counter %>" />
       </div>
@@ -28,6 +28,7 @@
         </div>
       </div>
     </div>
+    </a>
     <% end %>
   </div>
   <div class="map-container col-5">
