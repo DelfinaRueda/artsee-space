@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @users = User.all
     @artworks = Artwork.all
+    @popartworks = @artworks.sort_by{|artwork| -artwork[:sales]}
   end
 
   def artists

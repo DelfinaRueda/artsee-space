@@ -14,7 +14,7 @@
         <p><%= @artwork.user.description.truncate_words(120) %></p>
           <strong>Category:</strong>
           <%= @artwork.category %></p>
-        <p><strong>Number<%= p "s" if @orders.where(artwork_id: @artwork.id).count > 1 %> sold:</strong> <%= @orders.where(artwork_id: @artwork.id).count %></p>
+        <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
         <div class="footer-links">
           <a href="#">
             <i class="fab fa-pinterest"></i>
