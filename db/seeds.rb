@@ -56,7 +56,7 @@ User.all.each do |user|
   rand(5..15).times do
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
-      category: ["painting", "photograph", "drawing", "illustration", "cartoons", "anime"].sample,
+      category: ["painting", "photograph", "drawing", "illustration", "cartoon", "anime"].sample,
       description: Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote + Faker::TvShows::RickAndMorty.quote,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
@@ -70,14 +70,17 @@ end
 
 puts 'Creating orders...'
 
-10.times do
-  User.all.sample(25).each do |user|
+20.times do
+  User.all.sample(50).each do |user|
   order = Order.new(
     state: "paid",
     user_id: user.id,
     artwork_id: Artwork.all.sample.id,
     )
   order.save!
+  artwork = Artwork.find(order.artwork_id)
+  artwork[:sales] += 1
+  artwork.save!
   end
 end
 
