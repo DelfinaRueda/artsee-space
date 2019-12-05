@@ -20,13 +20,32 @@ class ArtworksController < ApplicationController
     @orders = Order.all
     @comments = @artwork.comments
     @comment = Comment.new
-    if current_user.present?
+
+    @activate_controls = @artworks.count > 1
+    if @activate_controls
+      previous_aw = @artworks.where('id < ?', params[:id]).last
+      next_aw = @artworks.where('id > ?', params[:id]).first
+      previous_aw = @artworks.last if previous_aw.nil?
+      next_aw = @artworks.first if next_aw.nil?
+      @prev_aw_path = polymorphic_path(previous_aw)
+      @next_aw_path = polymorphic_path(next_aw)
+    end
+
+    if user_signed_in?
       make_read if current_user.id == @artwork.user_id
+      if current_user.id != @artwork.user.id
+        @artwork[:views] += 1
+        @artwork.save
+      end
     end
-    if current_user != nil && current_user.id != @artwork.user.id
-      @artwork[:views] += 1
-      @artwork.save
-    end
+  end
+
+  def next
+    self.class.where("id > ?", id).first
+ end
+
+  def previous
+    self.class.where("id < ?", id).last
   end
 
   def new
