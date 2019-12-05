@@ -13,11 +13,10 @@
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
           <% unless @artwork.user.description.nil? %>
-            <p><%= @artwork.user.description.truncate_words(120) %>
+            <p style="font-size:18px"><%= @artwork.user.description.truncate_words(120) %>
           <% end %>
            <p>
           <%= @artwork.category %></p>
-         <p style="font-size:18px"><%= @artwork.category %></p>
         <p><%=@artwork.dimensions %>cm</p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
         <p><i class="far fa-eye"></i> <%= @artwork.views %></p>

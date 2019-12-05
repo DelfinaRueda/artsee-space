@@ -25,7 +25,7 @@
       box-sizing: border-box;
       img {
         width: 100%;
-        max-height: calc(100vh - 60px - #{$image-container-padding} * 2);
+        max-height: calc(100vh - 100px - 60px - #{$image-container-padding} * 2);
         object-fit: contain;
       }
     }
