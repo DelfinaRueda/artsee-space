@@ -11,9 +11,6 @@
         <h5 style="font-size:22px">By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-          <% unless @artwork.user.description.nil? %>
-            <p style="font-size:18px"><%= @artwork.user.description.truncate_words(120) %>
-          <% end %>
            <p>
          <p style="font-size:18px"><%= @artwork.category %></p>
         <p><%=@artwork.dimensions %>cm</p>

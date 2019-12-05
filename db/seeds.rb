@@ -114,7 +114,7 @@ User.all.each do |user|
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
-      artwork_pic: res['location'].sub(/\?.*/, ""),
+      # artwork_pic: res['location'].sub(/\?.*/, ""),
       price_cents: rand(100..1000),
       views: rand(1..1999)
     )
