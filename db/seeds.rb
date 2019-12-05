@@ -271,6 +271,7 @@ artwork = Artwork.new(
 
 artwork.save!
 
+
 puts "Delfi = main_user"
 
 puts 'Finished!'
