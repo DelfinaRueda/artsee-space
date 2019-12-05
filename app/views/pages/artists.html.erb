@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="container-with-search">
     <h1 class="text-center">Artists</h1>
-    <%= render 'shared/search-form', { placeholder: "Find an artist", form_path: artists_path } %>
+    <%= render 'shared/search-form', { placeholder: "Find an artist", activate_filters: false, form_path: artists_path } %>
   </div>
   <div class="artists-cards">
     <% @artists.each do |artist| %>

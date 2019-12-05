@@ -1,11 +1,10 @@
 <%= form_tag form_path, method: :get, class: "searching-form" do %>
-<%= render partial: "shared/checkbox-card", locals: {name: "painting"} %>
-<%= render partial: "shared/checkbox-card", locals: {name: "photograph"} %>
-<%= render partial: "shared/checkbox-card", locals: {name: "drawing"} %>
-<%= render partial: "shared/checkbox-card", locals: {name: "illustration"} %>
-<%= render partial: "shared/checkbox-card", locals: {name: "cartoon"} %>
-<%= render partial: "shared/checkbox-card", locals: {name: "anime"} %>
-
+<% if activate_filters %>
+  <%= render partial: "shared/checkbox-card", locals: {name: "painting"} %>
+  <%= render partial: "shared/checkbox-card", locals: {name: "photograph"} %>
+  <%= render partial: "shared/checkbox-card", locals: {name: "drawing"} %>
+  <%= render partial: "shared/checkbox-card", locals: {name: "illustration"} %>
+<% end %>
   <div class="search-box">
     <%= text_field_tag :query,
       params[:query],
