@@ -1,7 +1,6 @@
 <div class="artwork-container">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
-      <p class="text-bottom"><%=@artwork.dimensions %>cm</p>
       <a href="<%= @prev_aw_path %>" class="btn btn-primary">Prev</a>
       <a href="<%= @next_aw_path %>" class="btn btn-primary">Next</a>
     </div>
@@ -17,10 +16,7 @@
           <% end %>
            <p>
           <%= @artwork.category %></p>
-<<<<<<< HEAD
-=======
          <p style="font-size:18px"><%= @artwork.category %></p>
->>>>>>> c72fc3f55b6092f2fd8b8032c513cc7f56978681
         <p><%=@artwork.dimensions %>cm</p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
         <p><i class="far fa-eye"></i> <%= @artwork.views %></p>
