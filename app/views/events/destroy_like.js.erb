@@ -1,2 +1,2 @@
 hearts = document.getElementById("heart-<%= @event.id %>")
-hearts.innerHTML = '<%= link_to create_like_event_path(@event), method: :post, remote: true do %><i class=\"far fa-heart\"></i><% end %>'
+hearts.innerHTML = '<%= link_to create_like_event_path(@event), method: :post, remote: true do %><i class=\"far fa-heart\" style="color:orange"></i><% end %>'

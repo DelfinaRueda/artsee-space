@@ -1,9 +1,20 @@
 <div class="container">
-  <div class="row py-4">
+  <h2>Checkout summary</h2>
+  <br>
+
+  <h3><strong>Delivery Details</strong></h3>
+  <p style="margin-top: 16px">Miss Delfina Rueda</p>
+  <p style="margin-top: -4px">370 St Johns Street</p>
+  <p style="margin-top: -4px">EC1V 4NA</p>
+  <p style="margin-top: -4px">London</p>
+  <button class= "btn btn-primary" style="margin-bottom: 24px;">Edit Details</button>
+  <div class="row py-4" style="border: 1px solid lightgrey">
     <div class="col-md-3"><%= render partial: 'shared/artwork', locals: { artwork: @order.artwork } %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.artwork.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <h3>Purchase of <strong><%= @order.artwork.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h3>
+      <br>
+      <br>
+      <br>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
