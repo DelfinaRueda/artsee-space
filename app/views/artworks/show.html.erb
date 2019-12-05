@@ -1,8 +1,10 @@
-<div class="artwork-container">
+<div class="artwork-container" style="border-bottom: 1px solid lightgrey;">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
-      <a href="<%= @prev_aw_path %>" class="btn btn-primary">Prev</a>
-      <a href="<%= @next_aw_path %>" class="btn btn-primary">Next</a>
+<!--       <div class="button-next">
+        <a href="<%= @prev_aw_path %>" class="btn btn-primary">Prev</a>
+        <a href="<%= @next_aw_path %>" class="btn btn-primary">Next</a>
+      </div> -->
     </div>
     <div class="artist-info page-container container">
       <div class="info-top">
@@ -42,7 +44,7 @@
   </div>
 </div>
 <div class="page-container container" style="margin-top: -40px">
-    <h4 style="margin-top: 8px">
+    <h4 style="margin-top: 16px">
       Description
     </h4>
     <p><%= @artwork.description%></p>
