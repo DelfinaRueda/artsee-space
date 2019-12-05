@@ -37,6 +37,7 @@ class ArtworksController < ApplicationController
         @artwork[:views] += 1
         @artwork.save
       end
+
     end
   end
 
