@@ -9,13 +9,13 @@ class OrdersController < ApplicationController
 
   def create
     artwork = Artwork.find(params[:artwork_id])
-    order  = Order.create!(artwork: artwork, amount: artwork.price_cents, state: 'pending', user: current_user)
+    order = Order.create!(artwork: artwork, amount: artwork.price_cents, state: 'pending', user: current_user)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
         name: artwork.title,
-        amount: (artwork.price_cents) * 100,
+        amount: artwork.price_cents * 100,
         currency: 'gbp',
         quantity: 1
       }],
