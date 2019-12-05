@@ -13,5 +13,6 @@
 <% if artwork.photo.attached? %>
   <%= cl_image_tag artwork.photo.key, width: '500px', class: "artwork", crop: "scale" %>
 <% else %>
-  <img src="<%= artwork.artwork_pic %>?w=500&fit=max" alt="artwork-pic" style="width: 100%;">
+  <%= cl_image_tag artwork.artwork_pic, width: '500px', class: "artwork", crop: "scale" %>
+  
 <% end %>

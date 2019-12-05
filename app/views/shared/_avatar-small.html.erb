@@ -1,7 +1,7 @@
 <div class="profile-image">
   <% if artist.photo.attached? %>
-    <%= cl_image_tag artist.photo.key, crop: :fill, height: 120, width: 120, class: "avatar-profile" %>
+    <%= cl_image_tag artist.photo.key, crop: :fill, height: 120, width: 120, class: "avatar" %>
   <% else %>
-    <img class="avatar-profile" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
+    <img class="avatar" src="https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1">
   <% end %>
 </div>
