@@ -30,6 +30,7 @@ class ArtworksController < ApplicationController
       @prev_aw_path = polymorphic_path(previous_aw)
       @next_aw_path = polymorphic_path(next_aw)
     end
+<<<<<<< HEAD
 
     if user_signed_in?
       make_read if current_user.id == @artwork.user_id
@@ -37,6 +38,11 @@ class ArtworksController < ApplicationController
         @artwork[:views] += 1
         @artwork.save
       end
+=======
+    if current_user != nil && current_user.id != @artwork.user.id
+      @artwork[:views] += 1
+      @artwork.save
+>>>>>>> 16a51aea34e2e30fb33bc557860d3f171d21e09f
     end
   end
 
