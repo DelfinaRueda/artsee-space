@@ -1,5 +1,5 @@
 <% if artist.photo.attached? %>
-  <%= cl_image_tag artist.photo.key, class: "avatar", crop: :fill, height: 120, width: 120 %>
+  <%= cl_image_tag artist.photo.key, class: "avatar", crop: :thumb, zoom: 0.5, height: 500, width: 350, gravity: :face %>
 <% else %>
-  <%= cl_image_tag artist.profile_pic, class: "avatar", crop: :fill, height: 120, width: 120  %>
+  <%= cl_image_tag artist.profile_pic, class: "avatar", crop: :thumb, zoom: 0.5, height: 500, width: 350, gravity: :face  %>
 <% end %>

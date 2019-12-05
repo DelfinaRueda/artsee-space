@@ -11,8 +11,8 @@
 <% else %>
 <% end %>
 <% if artwork.photo.attached? %>
-  <%= cl_image_tag artwork.photo.key, width: '500px', class: "artwork" %>
+  <%= cl_image_tag artwork.photo.key, :width => 500, :crop => :fill, :class =>  "artwork"%>
 <% else %>
-  <%= cl_image_tag artwork.artwork_pic, width: '500px', class: "artwork", crop: "scale" %>
-  
+  <%= cl_image_tag artwork.artwork_pic, :width => 500, :crop => :fill, :class => "artwork"%>
+
 <% end %>

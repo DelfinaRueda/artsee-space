@@ -123,7 +123,7 @@ User.all.each do |user|
     # res = Net::HTTP.get_response(URI(["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample))
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
-      category: cat,
+      category: cat.to_s.sub(/s$/, ""),
       description: artwork_description.sample,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
