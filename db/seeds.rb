@@ -37,11 +37,22 @@ Event.destroy_all
 
 puts 'Creating users...'
 
-profile_pics = []
-results = Cloudinary::Api.resources(max_results: 500,type:"upload",prefix:"avatars/")
-results['resources'].each {|resource| profile_pics << resource['public_id']}
-puts "- Profile pics loaded (#{profile_pics.count})"
+def loud_cloudinary_folder(folder_name)
+  folder_pics = []
+  results = Cloudinary::Api.resources(max_results: 500,type:"upload",prefix: folder_name)
+  results['resources'].each {|resource| folder_pics << resource['public_id']}
+  puts "- #{folder_name} pics louded (#{folder_pics.count})"
+  return folder_pics
+end
+profile_pics = loud_cloudinary_folder("avatars/")
 
+
+illustrations = loud_cloudinary_folder("artworks/Illustrations")
+drawings = loud_cloudinary_folder("artworks/Drawings")
+paintings = loud_cloudinary_folder("artworks/Paintings")
+photographs = loud_cloudinary_folder("artworks/Photographs")
+artworks_pics_cats = { illustrations: illustrations, drawings: drawings, paintings: paintings, photographs: photographs }
+cats = [:illustrations, :drawings, :paintings, :photographs]
 puts '- Custom users...'
 
 user = User.new(
@@ -103,18 +114,22 @@ end
 puts 'Creating artworks...'
 
 User.all.each do |user|
+  cat = cats.sample
+  artworks_pics = artworks_pics_cats[cat]
+
   puts "- Add 5-15 Artworks to user"
   rand(5..15).times do
 
-    res = Net::HTTP.get_response(URI(["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample))
+    # res = Net::HTTP.get_response(URI(["https://source.unsplash.com/collection/5057079", "https://source.unsplash.com/collection/219941", "https://source.unsplash.com/collection/762960", "https://source.unsplash.com/collection/190727"].sample))
     artwork = Artwork.new(
       title: Faker::Ancient.primordial,
-      category: ["painting", "photograph", "drawing", "illustration"].sample,
+      category: cat.to_s.sub(/s$/, ""),
       description: artwork_description.sample,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
       dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
       # artwork_pic: res['location'].sub(/\?.*/, ""),
+      artwork_pic: artworks_pics.sample,
       price_cents: rand(100..1000),
       views: rand(1..1999)
     )
