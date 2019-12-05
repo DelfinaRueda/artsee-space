@@ -133,4 +133,144 @@ counter = 0
   event.save!
 end
 
+main_user = User.new(
+    first_name: "Delfina",
+    last_name: "Rueda",
+    email: "delfina@gmail.com",
+    password: "123456789",
+    username: "DelfiRueda",
+    phone_number: "07789413753",
+    description: "London based Argentine amateur photographer. My work explores the relationship between Pre-raphaelite tenets and unwanted gifts. With influences as diverse as Machiavelli and Francis Bacon, new tensions are distilled from both mundane and transcendant structures.
+
+Ever since I was a postgraduate I have been fascinated by the traditional understanding of meaning. What starts out as triumph soon becomes debased into a tragedy of defeat, leaving only a sense of nihilism and the dawn of a new beginning.
+
+As shimmering derivatives become distorted through emergent and repetitive practice, the viewer is left with an insight into the possibilities of our future."
+)
+main_user.save!
+
+gallery = Gallery.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  )
+gallery.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Summer days",
+  category: "photograph",
+  price_cents: rand(10..100),
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1556718205-1de7550f698d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  description: "Just like childhood needs a certain level of innocence, a warm summer needs a bicycle. Flying down with the wind in your hair creates a sense of freedom and immaturity. Bare image that mirrors the simplicity of a lazy summer.",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Skater boi",
+  price_cents: rand(10..100),
+  category: "photograph",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://dvqlxo2m2q99q.cloudfront.net/000_clients/704852/page/h800-704852O5t1qK8A.jpg",
+  description: "In a similar manner to my practice of demonstrating the dynamism and unfixity of identity through constant character transformations, the installations will demonstrate the same through their cycles of transformation. Each installation space parodies real-world, real spaces: studio, office, commercial, domestic, etc. Each space will be open to the viewer as participant/user; the manner in which they participate with, or use it will be dependent on the identity of each installation. Each space will be inhabited and uninhabited at different times to play with presence and absence. Each will aim to antagonize, upset, frustrate and/or agitate the viewer through different anti-social strategies that will include: parody, deceit, surveillance and theft.",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Lover Boy",
+  price_cents: rand(10..100),
+  category: "photograph",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1571968225811-2b1e379840ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  description: "Wandering the streets all through the night searching for the one to make me right. Wondering if she's the shade of youc and if so, should I try to see it through? Darling, i got my trust issues, warning, you stay away. If we meet at the rendezvous take me away, sunray. Darling, I got my trust issues, warning, you stay away. Time and toys may fill my heart with joy but I'll know peace when I'm your lover boy.",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Blinding",
+  price_cents: rand(10..100),
+  category: "photograph",
+  description: "No text also means no context. You're free to enjoy the images in their purest form, without names, labels, definitions, or purpose. It makes the pictures we see across the web more mysterious and open to interpretation of our own imaginations.",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "http://ayemag.com/wp-content/uploads/2017/09/IMG_2790.jpg",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Flower man",
+  price_cents: rand(10..100),
+  category: "photograph",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  description: "Inspired by science fictional depictions of arid worlds and the cultural practices that develop around water scarcity, this piece envisions a propositional social ritual that has developed in response to the growing threat of water scarcity in California. Through a combination of diegetic prototypes and video, Water Rites explores a slice of uncanny, fictitious culture from a world where our relationship to water is far less cavalier.",
+  artwork_pic: "https://dvqlxo2m2q99q.cloudfront.net/000_clients/704852/page/h800-704852poqgJ31r.jpg",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Joy of film",
+  price_cents: rand(10..100),
+  category: "photograph",
+  description: "In a similar manner to my practice of demonstrating the dynamism and unfixity of identity through constant character transformations, the installations will demonstrate the same through their cycles of transformation. Each installation space parodies real-world, real spaces: studio, office, commercial, domestic, etc. Each space will be open to the viewer as participant/user; the manner in which they participate with, or use it will be dependent on the identity of each installation. Each space will be inhabited and uninhabited at different times to play with presence and absence. Each will aim to antagonize, upset, frustrate and/or agitate the viewer through different anti-social strategies that will include: parody, deceit, surveillance and theft.",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1556718205-a5b7d00c8544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "love",
+  price_cents: rand(10..100),
+  category: "photograph",
+  description: "This work is a disembodied and disguised, cartoonesque hallucinatory montage consisting of panoramas of present-day Tokyo and Beirut which is reminiscent of landscape and the body.",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1541164757216-e5c2c2b5d69b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Yellow",
+  price_cents: rand(10..100),
+  category: "photograph",
+  description: "My work explores the relationship between Critical theory and emotional memories. With influences as diverse as Derrida and Joni Mitchell, new synergies are distilled from both orderly and random narratives.",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1488702953093-ac0820558db2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+artwork = Artwork.new(
+  user_id: User.find_by(username: "DelfiRueda").id,
+  title: "Window",
+  price_cents: rand(10..100),
+  category: "photograph",
+  description: "My work explores the relationship between Critical theory and emotional memories. With influences as diverse as Derrida and Joni Mitchell, new synergies are distilled from both orderly and random narratives.",
+  dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+  artwork_pic: "https://images.unsplash.com/photo-1501579672668-68e6b414451b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  gallery_id: Gallery.where(user_id: user.id).first.id
+)
+
+artwork.save!
+
+puts "Delfi = main_user"
+
 puts 'Finished!'
