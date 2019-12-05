@@ -20,23 +20,27 @@ Event.destroy_all
 
 puts 'Creating users...'
 
+profile_pics = []
+results = Cloudinary::Api.resources(max_results: 500,type:"upload",prefix:"avatars/")
+results['resources'].each {|resource| profile_pics << resource['public_id']}
+puts "- Profile pics louded (#{profile_pics.count})"
+
+puts '- Custom users...'
+
 user = User.new(
-    first_name: "Art",
-    last_name: "See",
+    first_name: "Arthur",
+    last_name: "Seebert",
     email: "artsee@gmail.com",
     password: "123456789",
     username: "artsee",
     phone_number: "12345678910",
-    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+    profile_pic: profile_pics[0],
 )
 user.save!
+puts '- 35 users...'
 
-profile_pics = []
-results = Cloudinary::Api.resources(type:"upload",prefix:"profile-images/")
-results['resources'].each {|resource| profile_pics << resource['public_id']}
-
-
-50.times do
+user_counter = 2
+35.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -44,10 +48,11 @@ results['resources'].each {|resource| profile_pics << resource['public_id']}
     password: "123456789",
     username: Faker::Games::Pokemon.unique.name.downcase,
     phone_number: "12345678910",
-    profile_pic: profile_pics.sample,
+    profile_pic: profile_pics[user_counter],
     description: Faker::TvShows::RickAndMorty.quote.slice(0,250),
   )
   user.save!
+  user_counter += 1
 end
 
 puts 'Creating galleries...'
@@ -104,7 +109,7 @@ user = User.new(
     password: "123456789",
     username: "discount_vancough",
     phone_number: "12345678910",
-    profile_pic: "https://i2.wp.com/eikongroup.co.uk/wp-content/uploads/2017/04/Blank-avatar.png?ssl=1",
+    profile_pic: profile_pics[1],
 )
 user.save!
 

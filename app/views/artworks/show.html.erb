@@ -2,6 +2,8 @@
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
       <p class="text-bottom"><%=@artwork.dimensions %>cm</p>
+      <a href="<%= @prev_aw_path %>" class="btn btn-primary">Prev</a>
+      <a href="<%= @next_aw_path %>" class="btn btn-primary">Next</a>
     </div>
     <div class="artist-info page-container container">
       <div class="info-top">
@@ -10,7 +12,9 @@
         <h5>By
           <%= @artwork.user.first_name %>
           <%= @artwork.user.last_name %></h5></a>
-        <p><%= @artwork.user.description.truncate_words(120) %>
+          <% unless @artwork.user.description.nil? %>
+            <p><%= @artwork.user.description.truncate_words(120) %>
+          <% end %>
            <p>
           <%= @artwork.category %></p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>

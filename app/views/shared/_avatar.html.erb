@@ -1,7 +1,7 @@
 <% if artist.photo.attached? %>
-  <%= cl_image_tag(artist.profile_pic, :width => 400, :crop => :fill) %>
+  <%= cl_image_tag(artist.profile_pic, :width => 500, :height => 350,  :crop => :fill, :gravity => :face) %>
 <% else %>
-  <%= cl_image_tag(artist.profile_pic, :width => 400, :crop => :fill) %>
+  <%= cl_image_tag(artist.profile_pic, :width => 500, :height => 350,  :crop => :fill, :gravity => :face) %>
 
 
 <% end %>
