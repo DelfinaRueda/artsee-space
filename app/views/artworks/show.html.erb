@@ -15,7 +15,6 @@
             <p style="font-size:18px"><%= @artwork.user.description.truncate_words(120) %>
           <% end %>
            <p>
-          <%= @artwork.category %></p>
          <p style="font-size:18px"><%= @artwork.category %></p>
         <p><%=@artwork.dimensions %>cm</p>
         <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
