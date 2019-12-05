@@ -20,11 +20,11 @@
         <div class="icon-heart" id="heart-<%= event.id %>">
           <% if Like.where(event:event, user:current_user, state: true).any? %>
             <%= link_to destroy_like_event_path(Like.where(event:event, user:current_user, state: true).first), method: :delete, remote: true do %>
-              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart" style="color:orange"></i>
             <% end %>
           <% else %>
             <%= link_to create_like_event_path(event), method: :post, remote: true do %>
-              <i class="far fa-heart"></i>
+              <i class="far fa-heart" style="color:orange"></i>
             <% end %>
             </a>
           <% end %>
