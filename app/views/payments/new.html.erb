@@ -10,7 +10,7 @@
   <button class= "btn btn-primary" style="margin-bottom: 24px;">Edit Details</button>
   <div class="row py-4" style="border: 1px solid lightgrey">
     <div class="col-md-3 payment-image-container">
-      <%= render partial: 'shared/artwork', locals: { artwork: @order.artwork } %>
+      <%= render partial: 'shared/artwork', locals: { artwork: @order.artwork, large_img: false } %>
     </div>
     <div class="col">
       <h3>Purchase of <strong><%= @order.artwork.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h3>

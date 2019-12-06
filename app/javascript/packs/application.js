@@ -21,11 +21,13 @@ initMapbox();
 
 const markers = document.querySelectorAll(".mapboxgl-marker")
 document.querySelectorAll(".card-event").forEach((card, index) => {
+  markers[index].querySelector("g[fill=\"#3FB1CE\"]").setAttribute("fill", "#795a43")
+
   card.addEventListener("mouseenter", e => {
-    markers[index].querySelector("g[fill=\"#3FB1CE\"]").setAttribute("fill", "orange")
+    markers[index].querySelector("g[fill=\"#795a43\"]").setAttribute("fill", "orange")
   })
   card.addEventListener("mouseleave", e => {
-    markers[index].querySelector("g[fill=\"orange\"]").setAttribute("fill", "#3FB1CE")
+    markers[index].querySelector("g[fill=\"orange\"]").setAttribute("fill", "#795a43")
   })
 })
 

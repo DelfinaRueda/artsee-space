@@ -1,21 +1,43 @@
 .container-events {
   display:flex;
 }
-
+.map-container {
+  height: 100vh;
+  position: sticky;
+  top: 0px;
+  flex: 1 1;
+  flex-basis: auto;
+}
 .event-cards {
+  flex-basis: 750px;
+  border-bottom: 2px solid $light-gray;
+
 
   .card-event:hover {
-    box-shadow: 0 0 16px rgba(0,0,0,0.25);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.25);
+    // transform-origin: 35%;
+    transform: scale(1.008);
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    border-bottom: 4px solid orange;
+    border-top: 2px solid transparent;
+    transition: transform 0.2s 0.1s, box-shadow 0.25s 0.1s, border-color .2s 0.1s ease-in;
+
   }
   .card-event {
-    margin-bottom: 4px;
-    padding: 20px 0px;
+
+    background: $lighter-gray;
+    padding: 24px 32px;
+
     overflow: hidden;
-    height: 200px;
     background: white;
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 4px solid transparent;
+    border-top: 2px solid $light-gray;
+
+    z-index: 1;
+    transition: transform 0.4s, box-shadow 0.35s, border-color .4s ease-in;
 
       h2 {
         font-size: 32px;
@@ -33,7 +55,7 @@
 
       h5 {
         font-size: 16px;
-        color:orange;
+        color: $primary-light;
         text:bold;
       }
 
@@ -47,12 +69,18 @@
 
     .card-product-infos {
       width: 100%;
-      padding: 32px;
+      padding-left: 32px;
       display:flex;
       justify-content: space-between;
+      align-items: flex-start;
+      transition: transform 0.3s;
 
       .icon-heart {
         font-size: 20px;
+        &:hover {
+          transform: scale(1.1);
+
+        }
       }
     }
     // .card-product-infos {

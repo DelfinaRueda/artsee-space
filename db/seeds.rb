@@ -127,11 +127,11 @@ User.all.each do |user|
       description: artwork_description.sample,
       gallery_id: Gallery.where(user_id: user.id).first.id,
       user_id: user.id,
-      dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",
+      dimensions: "#{rand(20.0...60.0).round(1)} x #{rand(20.0...60.0).round(1)}",
       # artwork_pic: res['location'].sub(/\?.*/, ""),
       artwork_pic: artworks_pics.sample,
-      price_cents: rand(100..1000),
-      views: rand(1..1999)
+      price_cents: rand(500..3500),
+      views: rand(1..999)
     )
     artwork.save!
   end
@@ -297,7 +297,7 @@ artwork.save!
 artwork = Artwork.new(
   user_id: User.find_by(username: "DelfiRueda").id,
   title: "Window",
-  price_cents: rand(10..100),
+  price_cents: rand(20..100),
   category: "photograph",
   description: "My work explores the relationship between Critical theory and emotional memories. With influences as diverse as Derrida and Joni Mitchell, new synergies are distilled from both orderly and random narratives.",
   dimensions: "#{rand(0.0...100.0).round(1)} x #{rand(0.0...100.0).round(1)}",

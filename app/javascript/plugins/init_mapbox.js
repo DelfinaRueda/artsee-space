@@ -6,8 +6,13 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/juliansteinmann/ck3rpfzm10mbc1clkrgve8k7p'
+    style: 'mapbox://styles/juliansteinmann/ck3rpfzm10mbc1clkrgve8k7p',
+    scrollZoom      : false,
+    boxZoom         : false,
+    doubleClickZoom : false
   });
+  map.addControl(new mapboxgl.NavigationControl());
+
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -33,7 +38,9 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+
   }
+
 };
 
 export { initMapbox };

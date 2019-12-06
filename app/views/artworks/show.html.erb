@@ -1,12 +1,12 @@
 <div class="artwork-container" style="border-bottom: 1px solid lightgrey;">
     <div class="image-container">
-      <%= render partial: 'shared/artwork', locals: { artwork: @artwork} %>
-<!--       <div class="button-next">
-        <a href="<%= @prev_aw_path %>" class="btn btn-primary">Prev</a>
-        <a href="<%= @next_aw_path %>" class="btn btn-primary">Next</a>
-      </div> -->
+      <%= render partial: 'shared/artwork', locals: { artwork: @artwork, large_img: true} %>
+      <div class="aw-controlls">
+        <a href="<%= @prev_aw_path %>" class=""><i class="fas fa-chevron-left"></i></a>
+        <a href="<%= @next_aw_path %>" class=""><i class="fas fa-chevron-right"></i></a>
+      </div>
     </div>
-    <div class="artist-info page-container container">
+    <div class="artist-info padding-container container">
       <div class="info-top">
         <h3 style="font-size: 35px"><%= @artwork.title %></h3>
         <a href="<%=artist_path(@artwork.user)%>">
@@ -15,9 +15,10 @@
           <%= @artwork.user.last_name %></h5></a>
            <p>
          <p style="font-size:18px"><%= @artwork.category %></p>
-        <p><%=@artwork.dimensions %>cm</p>
-        <p><strong>Number<%= p "s" if @artwork.sales > 1 %> sold:</strong> <%= @artwork.sales %></p>
-        <p><i class="far fa-eye"></i> <%= @artwork.views %></p>
+         <% unless @artwork.dimensions.nil? %>
+          <p><i class="fas fa-expand-arrows-alt faded-icon"></i> <%=@artwork.dimensions %>cm</p>
+        <% end %>
+        <p><i class="far fa-eye faded-icon"></i> <%= @artwork.views %></p>
 <!--         <div class="footer-links">
           <a href="#">
             <i class="fab fa-pinterest"></i>
@@ -34,11 +35,15 @@
         </div> -->
       </div>
       <div class="info-bottom">
-        <p><strong>Amount:</strong>
-          <%= humanized_money_with_symbol(@artwork.price_cents) %></p>
+        <p>Buy poster:<br>
+        <span class="h3"><%= humanized_money_with_symbol(@artwork.price_cents / 100) %></span>
+        </p>
+        <div>
         <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'artwork_id', @artwork.id %>
-        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <%= hidden_field_tag 'artwork_id', @artwork.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <p style="text-align: right;">Number<%= p "s" if @artwork.sales > 1 %> sold:<strong> <%= @artwork.sales %></strong> </p>
+        </div>
       <% end %>
     </div>
   </div>
@@ -74,7 +79,7 @@
           <div class="class-category">
             <div class="card-top">
               <%= link_to artwork_path(id) do %>
-              <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id)} %>
+              <%= render partial: 'shared/artwork', locals: { artwork: Artwork.find(id), large_img: false } %>
               <div class="overlay">
                 <% if  Artwork.find(id).description.length > 250%>
                 <p><%= Artwork.find(id).description.truncate_words(50)%></p>

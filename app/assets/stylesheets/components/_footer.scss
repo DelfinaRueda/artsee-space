@@ -1,10 +1,13 @@
 .footer-background {
-  margin-top: 70px;
+  // margin-top: 40px;
+  padding-top: 32px;
+  padding-bottom: 48px;
   display: flex;
   justify-content: center;
-  background-color: #333333;
+  background-color: $lighter-gray;
   color: rgb(183, 180, 165);
-  height: 220px;
+  position: relative;
+  @extend  %shadow-before-inset;
 }
 
 .footer-icons{
