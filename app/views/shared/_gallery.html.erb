@@ -1,7 +1,7 @@
 <div class="artwork-cards">
   <% artworks.each do |artwork| %>
     <div class="artwork-card" style="position: relative;">
-      <%= render partial: 'shared/artwork', locals: { artwork: artwork} %>
+      <%= render partial: 'shared/artwork', locals: { artwork: artwork, large_img: false} %>
       <a class="overlay" href="<%= artwork_path(artwork) %>">
           <h3><%= artwork.title %></h3>
         <% if params[:id] == nil%>

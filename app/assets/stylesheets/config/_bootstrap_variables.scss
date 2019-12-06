@@ -12,6 +12,7 @@ $font-size-base: 1rem;
 // Colors
 $body-color: $gray;
 $primary:    #795a43; // #5960ff #23815f #0f235e
+$primary-light: mix(#fff, #795a43, 30%);
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -26,6 +27,52 @@ $border-radius-sm: 2px;
 // Override other variables below!
 
 
+// Helper classes
+%shadow-before {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: -8px;
+    height: 8px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.04), transparent);
+  }
+}
+%shadow-before-inset {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 8px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), transparent);
+  }
+}
+
+%shadow-after-inset {
+  position: relative;
+  &:after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.04), transparent);
+  }
+}
+%shadow-after {
+  position: relative;
+  &:after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -8px;
+    height: 8px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), transparent);
+  }
+}
 
 
 

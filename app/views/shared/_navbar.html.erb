@@ -39,7 +39,7 @@
           <a class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= render partial: 'shared/avatar-small', locals: { artist: current_user } %>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" style="opacity: 0;" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" style="opacity: 0; margin-top: 0;" aria-labelledby="navbarDropdown">
             <%= link_to artist_path(current_user), class: "dropdown-item" do %>
             <i class="fas fa-user-circle menu-bg-icon"></i> Profile
             <% end %>
