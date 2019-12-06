@@ -36,7 +36,7 @@
       </div>
       <div class="info-bottom">
         <p>Buy poster:<br>
-        <span class="h3"><%= humanized_money_with_symbol(@artwork.price_cents / 100) %></span>
+        <span class="h3"><%= humanized_money_with_symbol(@artwork.price_cents) %></span>
         </p>
         <div>
         <%= form_tag orders_path do %>

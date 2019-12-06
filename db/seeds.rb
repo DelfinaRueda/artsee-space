@@ -130,7 +130,7 @@ User.all.each do |user|
       dimensions: "#{rand(20.0...60.0).round(1)} x #{rand(20.0...60.0).round(1)}",
       # artwork_pic: res['location'].sub(/\?.*/, ""),
       artwork_pic: artworks_pics.sample,
-      price_cents: rand(500..3500),
+      price_cents: rand(20..35),
       views: rand(1..999)
     )
     artwork.save!
