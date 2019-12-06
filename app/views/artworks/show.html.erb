@@ -1,4 +1,4 @@
-<div class="artwork-container">
+<div class="artwork-container" style="border-bottom: 1px solid lightgrey;">
     <div class="image-container">
       <%= render partial: 'shared/artwork', locals: { artwork: @artwork, large_img: true} %>
       <div class="aw-controlls">
@@ -49,7 +49,7 @@
   </div>
 </div>
 <div class="page-container container" style="margin-top: -40px">
-    <h4 style="margin-top: 8px">
+    <h4 style="margin-top: 16px">
       Description
     </h4>
     <p><%= @artwork.description%></p>
