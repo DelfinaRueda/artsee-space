@@ -6,7 +6,7 @@
 
 Alfie Gibbs
 -----------
-Delphina Rueda
+Delfina Rueda
 -----------
 Leon Lee
 -----------
